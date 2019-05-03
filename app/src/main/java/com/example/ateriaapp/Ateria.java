@@ -10,7 +10,7 @@ public class Ateria {
         this.nimi = nimi;
     }
 
-    public void (){
+    public void lisaaAine(){
 
     }
 
