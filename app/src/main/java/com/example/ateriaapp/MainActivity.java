@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d("aa", "date on" + date);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
     }
+
+
 
 }
