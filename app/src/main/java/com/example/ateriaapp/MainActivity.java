@@ -1,12 +1,21 @@
+/**
+ * @author Aku Telimaa
+ */
+
+
 package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -45,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupDays(){
         for (int i = 0 ; i < 7; i++) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd", Locale.US);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.US);
             Calendar cal = Calendar.getInstance();
             cal.add(Calendar.DAY_OF_MONTH, i);
             String newDate = sdf.format(cal.getTime());
@@ -71,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 day = (TextView) findViewById(R.id.viikonpaiva7);
             }
 
-            String dateText = ""+newDate1+" "+newDate;
+            String dateText = ""+newDate1+" "+newDate+"\n\n Klikkaa Lisätäksesi Ateria";
 
             day.setText(dateText);
 
@@ -79,6 +88,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addMeal(View view) {
+        Log.d(TAG, "addMeal: " +view.getId() );
+        TextView textView = (TextView) findViewById(view.getId());
+        Log.d(TAG, "addMeal: "+ textView.getText());
+        String fulldate = textView.getText().toString();
+        String[] date = fulldate.split(" ", 3);
+        Log.d(TAG, "addMeal: "+date[0]+" "+date[1]);
+        String dateish =  ""+date[0]+" "+date[1];
+        Intent intent = new Intent(this, lisaaAteria.class);
+        intent.putExtra("date", dateish);
+        startActivity(intent);
 
     }
 }
