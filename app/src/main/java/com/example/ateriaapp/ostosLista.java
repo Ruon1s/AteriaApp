@@ -18,7 +18,7 @@ public class ostosLista extends AppCompatActivity {
 
     private void populateListView(){
         String[] myItems = {"blue", "green", "Purple", "Red"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.items, myItems);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.ostokset, myItems);
         ListView list = (ListView) findViewById(R.id.ListViewMain);
         list.setAdapter(adapter);
     }
