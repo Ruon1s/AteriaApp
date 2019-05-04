@@ -17,11 +17,14 @@ public class Aterialistatesti {
         return instance;
     }
 
+    public Ateria getAteria(int i) {
+        Ateria ateria = aterialista.get(i);
+        return ateria;
+    }
 
-
-//tekee uuden aterian ja sijoittaa ainesosa muuttujat arraylistiin.
+    //tekee uuden aterian ja sijoittaa ainesosa muuttujat arraylistiin.
     public void addAteria(String nimi,String aine1, String aine2,String aine3, String aine4, String aine5, String aine6, String aine7){
-        Ateria ateria = new Ateria(nimi);
+        Ateria ateria = new Ateria(nimi, aine1);
         ateria.setAinesosat(aine1, aine2, aine3, aine4, aine5, aine6, aine7);
 
 

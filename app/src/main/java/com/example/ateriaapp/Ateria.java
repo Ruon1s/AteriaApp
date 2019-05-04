@@ -9,7 +9,15 @@ public class Ateria {
     public ArrayList<String> kaikkiainesosat = new ArrayList<>();
 
 
-//constructori
+    public String getDate() {
+        return this.date;
+    }
+
+    public String getNimi() {
+        return nimi;
+    }
+
+    //constructori
     public Ateria(String nimi, String date){
         this.nimi = nimi;
         this.date = date;

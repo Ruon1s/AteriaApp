@@ -20,11 +20,35 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     public TextView day;
+    public Aterialistatesti lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        lista = Aterialistatesti.getInstance();
+        Ateria ateria = new Ateria("Laatikko", "04.05.2019");
+        lista.aterialista.add(ateria);
+        Ateria ateria4 = new Ateria("Kaapo", "04.05.2019");
+        lista.aterialista.add(ateria4);
+        Ateria ateria1 = new Ateria("Pihvi", "06.05.2019");
+        lista.aterialista.add(ateria1);
+        Ateria ateria2 = new Ateria("Kukkakaali", "09.05.2019");
+        lista.aterialista.add(ateria2);
+        Ateria ateria5 = new Ateria("Laatikko", "09.05.2019");
+        lista.aterialista.add(ateria5);
+        Ateria ateria6 = new Ateria("Laatikko", "08.05.2019");
+        lista.aterialista.add(ateria6);
+        Ateria ateria7 = new Ateria("Laatikko", "05.05.2019");
+        lista.aterialista.add(ateria7);
+        for (int w = 0; w < lista.aterialista.size() ; w++) {
+            Log.d(TAG, "onCreate: "+lista.getAteria(w).toString());
+        }
+
+
+
+
+
         setupDays();
     }
 
@@ -55,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * <p>Setups 7 days to the front page </p>
+     * <p>Setups 7 days to the front page
+     * and parse existing meals to each day</p>
      * @author Aku Telimaa
      * @since 1.0
      */
@@ -69,8 +94,7 @@ public class MainActivity extends AppCompatActivity {
             SimpleDateFormat sdf1 = new SimpleDateFormat("E", Locale.US);
             String newDate1 = sdf1.format(cal.getTime());
             newDate1 = convertDayName(newDate1);
-            Log.d(TAG, "setupDays: " +newDate1);
-
+            Log.d(TAG, "setupDays: " +newDate1+" Size of List is "+lista.aterialista.size());
             if (i==0) {
                 day = (TextView) findViewById(R.id.viikonpaiva1);
             } else if (i==1) {
@@ -86,9 +110,20 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 day = (TextView) findViewById(R.id.viikonpaiva7);
             }
+            String dateText = ""+newDate1+" "+newDate+"\n";
 
-            String dateText = ""+newDate1+" "+newDate+"\n\n Klikkaa Lisätäksesi Ateria";
+            for (int x = 0 ; x < lista.aterialista.size() ; x++) {
+                Ateria olio = lista.getAteria(x);
+                Log.d(TAG, "setupDays: Olion Date on: " +olio.getDate());
 
+                if (olio.getDate().equals(newDate)) {
+                    Log.d(TAG, "setupDays: Olio Found.");
+                    dateText = ""+dateText+ ""+ olio.getNimi()+"\n";
+                } else {
+                    Log.d(TAG, "setupDays: Olio not found");
+                }
+            }
+            dateText = ""+dateText+"Klikkaa Lisätäksesi Ateria";
             day.setText(dateText);
 
         }
