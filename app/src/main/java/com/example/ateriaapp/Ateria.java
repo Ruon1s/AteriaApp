@@ -1,18 +1,18 @@
 package com.example.ateriaapp;
 
 import java.util.ArrayList;
-
+//aterialuokka jonka parometreinä nimi ja arraylist johon tulee ainesosat.
 public class Ateria {
     private String nimi;
     private ArrayList<String> ainesosat = new ArrayList<>();
     public ArrayList<String> kaikkiainesosat = new ArrayList<>();
 
 
-
+//constructori
     public Ateria(String nimi){
         this.nimi = nimi;
     }
-
+//setteri ainesosille laittaa ainesosat tietylle oliolle arraylist muodossa.
     public void setAinesosat(String aine1,String aine2,String aine3){
         ainesosat.add(aine1);
         ainesosat.add(aine2);
@@ -23,9 +23,5 @@ public class Ateria {
 
     }
 
-    public void listaaAinesosat(){
-
-
-    }
 
 }
