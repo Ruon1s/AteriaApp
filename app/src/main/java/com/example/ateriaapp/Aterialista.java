@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Aterialista extends AppCompatActivity {
+    public String ainesosa1 = "kukkakaali";
+    public String ainesosa2 = "peruna";
+    public String ainesosa3 = "muna";
+
+    public ArrayList<Ateria> aterialista = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +21,12 @@ public class Aterialista extends AppCompatActivity {
         setContentView(R.layout.activity_ateria_nakyma);
 
         populateListView();
+    }
+
+    public void addAteria(String nimi){
+        Ateria ateria = new Ateria(nimi);
+        ateria.setAinesosat(ainesosa1, ainesosa2, ainesosa3);
+        aterialista.add(ateria);
     }
 
     private void populateListView(){
