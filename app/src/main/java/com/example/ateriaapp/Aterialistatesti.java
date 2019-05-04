@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Aterialistatesti {
     public ArrayList<Ateria> aterialista = new ArrayList<>();
-    public ArrayList<String> prototyypit = new ArrayList<>();
+    public ArrayList<Ateria> prototyypit = new ArrayList<>();
 
     //simpleton malli
     private static Aterialistatesti instance;
@@ -19,7 +19,7 @@ public class Aterialistatesti {
         return instance;
     }
 
-    public ArrayList<String> getPrototyypit() {
+    public ArrayList<Ateria> getPrototyypit() {
         return prototyypit;
     }
 

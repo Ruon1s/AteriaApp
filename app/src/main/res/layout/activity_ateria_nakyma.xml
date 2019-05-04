@@ -66,8 +66,9 @@
 
     <ListView
         android:id="@+id/listViewMeal"
-        android:layout_width="379dp"
+        style="@android:style/Widget.DeviceDefault.Light.ListView"
+        android:layout_width="375dp"
         android:layout_height="489dp"
-        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteX="19dp"
         tools:layout_editor_absoluteY="140dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

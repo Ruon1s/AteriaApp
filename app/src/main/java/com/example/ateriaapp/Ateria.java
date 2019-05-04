@@ -12,6 +12,7 @@ public class Ateria {
     private String date;
     private ArrayList<String> ainesosat = new ArrayList<>();
     public ArrayList<String> kaikkiainesosat = new ArrayList<>();
+    public Aterialistatesti lista;
 
 
 
@@ -29,28 +30,10 @@ public class Ateria {
 
     //constructori
     public Ateria(String nimi) {
-        boolean check = true;
+
         this.nimi = nimi;
-        Log.d(TAG, "Ateria: created. Size: " +Aterialistatesti.getInstance().prototyypit.size());
-
-        if (Aterialistatesti.getInstance().prototyypit.size() != 0) {
-            for (int i = 0; i < Aterialistatesti.getInstance().prototyypit.size() ; i++) {
-                Log.d(TAG, "Ateria: "+Aterialistatesti.getInstance().prototyypit.get(i)+" = "+nimi);
-                if (Aterialistatesti.getInstance().prototyypit.get(i).equals(nimi)) {
-                    check = false;
-                    Log.d(TAG, "Ateria: Ateria found.");
-                } else {
-                }
-            }
-            if(check) {
-                Aterialistatesti.getInstance().prototyypit.add(""+nimi);
-                Log.d(TAG, "Ateria: ADDED");
-            }
-        } else { Aterialistatesti.getInstance().prototyypit.add(""+nimi);
-            Log.d(TAG, "Ateria: First meal added");
-        }
-
     }
+
 
 
 

@@ -7,11 +7,17 @@ package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -21,35 +27,56 @@ public class MainActivity extends AppCompatActivity {
 
     public TextView day;
     public Aterialistatesti lista;
+    public ArrayList<Ateria> lista2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lista = Aterialistatesti.getInstance();
+        lista2 = Aterialistatesti.getInstance().prototyypit;
         Ateria ateria = new Ateria("Laatikko");
+        lista.prototyypit.add(ateria);
         ateria.setDate("04.05.2019");
         lista.aterialista.add(ateria);
         Ateria ateria4 = new Ateria("Kaapo");
+        lista.prototyypit.add(ateria4);
         ateria4.setDate("05.05.2019");
         lista.aterialista.add(ateria4);
         Ateria ateria1 = new Ateria("Pihvi");
+        lista.prototyypit.add(ateria1);
         ateria1.setDate("05.05.2019");
         lista.aterialista.add(ateria1);
         Ateria ateria2 = new Ateria("Kukkakaali");
+        lista.prototyypit.add(ateria2);
         ateria2.setDate("06.05.2019");
         lista.aterialista.add(ateria2);
         Ateria ateria5 = new Ateria("Laatikko");
+        lista.prototyypit.add(ateria5);
         ateria5.setDate("07.05.2019");
         lista.aterialista.add(ateria5);
         Ateria ateria6 = new Ateria("Laatikko");
+        lista.prototyypit.add(ateria6);
         ateria6.setDate("08.05.2019");
         lista.aterialista.add(ateria6);
         Ateria ateria7 = new Ateria("Laatikko");
+        lista.prototyypit.add(ateria7);
         ateria7.setDate("09.05.2019");
         lista.aterialista.add(ateria7);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("shared homppelit", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(lista2);
+        editor.putString("task list", json);
+        editor.apply();
+
+
+        Log.d(TAG, "onCreate: " +lista.prototyypit.size());
         for (int w = 0; w < lista.aterialista.size() ; w++) {
             Log.d(TAG, "onCreate: "+lista.getAteria(w).toString());
+
+            Log.d(TAG, "onCreate: " +lista.prototyypit.size());
         }
 
 
