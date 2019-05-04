@@ -6,7 +6,6 @@
 package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,8 +29,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @param SDFDay
-     * @return
+     * <p>Function will translate the English name of the day into Finnish</p>
+     * @param SDFDay Abbreviation of the English name of the day ( Mon, Tue, Wed, Thu, Fri, Sat, Sun )
+     * @return Name of the day in Finnish
+     * @since 1.0
+     * @author Aku Telimaa
      */
     private String convertDayName(String SDFDay) {
         if (SDFDay.contentEquals("Mon")) {
@@ -53,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     * <p>Setups 7 days to the front page </p>
+     * @author Aku Telimaa
+     * @since 1.0
      */
     private void setupDays(){
         for (int i = 0 ; i < 7; i++) {
@@ -91,8 +95,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
-     * @param view
+     * <p>Clicking the date will open up new activity</p>
+     * @param view Clicked TextView
+     * @author Aku Telimaa
+     * @since 1.0
      */
     public void addMeal(View view) {
         Log.d(TAG, "addMeal: " +view.getId() );

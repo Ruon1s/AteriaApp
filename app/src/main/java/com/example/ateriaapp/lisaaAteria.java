@@ -1,14 +1,10 @@
 package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
-
 
 public class lisaaAteria extends AppCompatActivity {
 
@@ -22,14 +18,11 @@ public class lisaaAteria extends AppCompatActivity {
 
         TextView dateview = (TextView) findViewById(R.id.dateView);
         dateview.setText(date);
-        }
+    }
 
 
-public void lisaaAine(View view) {
-        ConstraintLayout cLayout = (ConstraintLayout) findViewById(R.id.LisaaAteria);
-        EditText editText = new EditText(this);
-        editText.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        cLayout.addView(editText);
+    public void lisaaAine(View view) {
 
-        }
-        }
+
+    }
+}
