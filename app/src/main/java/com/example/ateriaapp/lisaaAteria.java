@@ -19,9 +19,6 @@ public class lisaaAteria extends AppCompatActivity {
     public ConstraintLayout container;
     public EditText ruoka_aine, ruoka_aine2, ruoka_aine3, ruoka_aine4, ruoka_aine5, ruoka_aine6, ruoka_aine7, ateriaNimi;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +34,7 @@ public class lisaaAteria extends AppCompatActivity {
         ruoka_aine6 = (EditText) findViewById(R.id.ruoka_aine6);
         ruoka_aine7 = (EditText) findViewById(R.id.ruoka_aine7);
 
-
     }
-
-
-
-
 
     public void returnButton(){
         String nimi = ateriaNimi.getText().toString();
@@ -53,14 +45,11 @@ public class lisaaAteria extends AppCompatActivity {
         String aine5 = ruoka_aine5.getText().toString();
         String aine6 = ruoka_aine6.getText().toString();
         String aine7 = ruoka_aine7.getText().toString();
-   aterialista.addAteria(nimi, aine1, aine2, aine3, aine4, aine5, aine6, aine7);
+        aterialista.addAteria(nimi, aine1, aine2, aine3, aine4, aine5, aine6, aine7);
         Intent intent = new Intent(this, AteriaNakyma.class);
         startActivity(intent);
 
     }
-
-
-
 }
 
 
