@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ostosLista"></activity>
-        <activity android:name=".lisaaAteria" />
+        <activity android:name=".lisaaAteria"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".AteriaNakyma" />
         <activity android:name=".MainActivity">
             <intent-filter>

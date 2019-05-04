@@ -11,11 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -33,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setupDays();
     }
 
+    /**
+     * @param SDFDay
+     * @return
+     */
     private String convertDayName(String SDFDay) {
         if (SDFDay.contentEquals("Mon")) {
             SDFDay = "Maanantai";
@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         return SDFDay;
     }
 
+    /**
+     *
+     */
     private void setupDays(){
         for (int i = 0 ; i < 7; i++) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.US);
@@ -87,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param view
+     */
     public void addMeal(View view) {
         Log.d(TAG, "addMeal: " +view.getId() );
         TextView textView = (TextView) findViewById(view.getId());
