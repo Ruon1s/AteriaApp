@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class AteriaNakyma extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,5 +21,13 @@ public class AteriaNakyma extends AppCompatActivity {
 
         TextView dateview = (TextView) findViewById(R.id.dateView);
         dateview.setText(date);
+    }
+
+
+    public void createNewMeal(View view) {
+        Intent intent = new Intent(this, lisaaAteria.class);
+        startActivity(intent);
+
+
     }
 }

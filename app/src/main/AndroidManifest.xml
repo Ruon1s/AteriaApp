@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ostosLista"></activity>
+        <activity android:name=".ostosLista"
+            android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".lisaaAteria"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".AteriaNakyma"/>
         <activity android:name=".AteriaNakyma"
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
