@@ -5,11 +5,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-
+/*
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Aterialista extends AppCompatActivity {
-    //valmiit muuttujat arraylistiin
+/*    //valmiit muuttujat arraylistiin
     public String ainesosa1 = "kukkakaali";
     public String ainesosa2 = "peruna";
     public String ainesosa3 = "muna";
@@ -41,3 +41,4 @@ public class Aterialista extends AppCompatActivity {
     }
 
 }
+*/
