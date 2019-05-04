@@ -108,9 +108,11 @@ public class MainActivity extends AppCompatActivity {
         String[] date = fulldate.split(" ", 3);
         Log.d(TAG, "addMeal: "+date[0]+" "+date[1]);
         String dateish =  ""+date[0]+" "+date[1];
-        Intent intent = new Intent(this, lisaaAteria.class);
+        Intent intent = new Intent(this, AteriaNakyma.class);
         intent.putExtra("date", dateish);
         startActivity(intent);
 
     }
+
+
 }

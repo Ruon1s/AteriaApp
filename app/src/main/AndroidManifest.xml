@@ -12,7 +12,8 @@
         <activity android:name=".ostosLista"></activity>
         <activity android:name=".lisaaAteria"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".AteriaNakyma" />
+        <activity android:name=".AteriaNakyma"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
