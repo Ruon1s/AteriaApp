@@ -15,6 +15,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class lisaaAteria extends AppCompatActivity {
+
+    //olio declaration
     private Aterialistatesti aterialista;
     public ConstraintLayout container;
     public EditText ruoka_aine, ruoka_aine2, ruoka_aine3, ruoka_aine4, ruoka_aine5, ruoka_aine6, ruoka_aine7, ateriaNimi;
@@ -23,6 +25,7 @@ public class lisaaAteria extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lisaa_ateria);
+        //aterialistalle instanssi jotta pysyy samana
         aterialista = Aterialistatesti.getInstance();
         container = (ConstraintLayout) findViewById(R.id.LisaaAteria);
         ateriaNimi = (EditText) findViewById(R.id.ateriaNimi);
@@ -35,7 +38,7 @@ public class lisaaAteria extends AppCompatActivity {
         ruoka_aine7 = (EditText) findViewById(R.id.ruoka_aine7);
 
     }
-
+    //nappifunktio()
     public void returnButton(){
         String nimi = ateriaNimi.getText().toString();
         String aine1 = ruoka_aine.getText().toString();
@@ -45,7 +48,9 @@ public class lisaaAteria extends AppCompatActivity {
         String aine5 = ruoka_aine5.getText().toString();
         String aine6 = ruoka_aine6.getText().toString();
         String aine7 = ruoka_aine7.getText().toString();
+        //luo funktiolla uuden aterian ja lisää aineet arraylistiin
         aterialista.addAteria(nimi, aine1, aine2, aine3, aine4, aine5, aine6, aine7);
+        //siirtyy takaisin aterianäkymään
         Intent intent = new Intent(this, AteriaNakyma.class);
         startActivity(intent);
 
