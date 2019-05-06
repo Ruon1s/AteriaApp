@@ -15,6 +15,7 @@ public class AteriaNakyma extends AppCompatActivity {
     final static String TAG = "Aterianäkymä";
     public ListView listView;
     public String date;
+    public String day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +24,12 @@ public class AteriaNakyma extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listViewMeal);
         Intent intent = getIntent();
         date = intent.getStringExtra("date");
-
+        day = intent.getStringExtra("day");
         Log.d(TAG, "onCreate: Date = " +date);
 
         TextView dateview = (TextView) findViewById(R.id.dateView);
-        dateview.setText(date);
+        String dayDate = ""+day+" "+date;
+        dateview.setText(dayDate);
         setMealList();
 
     }
@@ -54,16 +56,12 @@ public class AteriaNakyma extends AppCompatActivity {
              Log.d(TAG, "onItemClick: nimi: "+nimi);
              Ateria ateria = new Ateria(nimi);
              Log.d(TAG, "onItemClick: aterian "+ateria);
-             ateria.setDate(splitDate(date));
-             Log.d(TAG, "onItemClick: date: "+splitDate(date));
+             ateria.setDate(date);
+             Log.d(TAG, "onItemClick: date: "+date);
              ListaAteriat.getInstance().aterialista.add(ateria);
          }
      });
 
     }
 
-    public String splitDate(String date){
-        String[] splitDate = date.split(" ", 2);
-        return splitDate[1];
-    }
 }

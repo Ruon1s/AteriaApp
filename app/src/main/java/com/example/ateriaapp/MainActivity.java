@@ -123,11 +123,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "addMeal: "+ textView.getText());
         String fulldate = textView.getText().toString();
         Log.d(TAG, "addMeal: Fulldate muuttuja on "+fulldate);
-        String[] date = fulldate.split(" ", 5);
-        Log.d(TAG, "addMeal: "+date[0]+" | "+date[1]+ " | " +date[2]+ " | " +date[3]+ " | "+date[4]);
-        String dateish =  ""+date[0]+" "+date[1];
+        String[] date = fulldate.split(" ");
+        String[] splitMore = date[1].split("\n");
+        Log.d(TAG, "addMeal: Splitmore :"+splitMore[0]);
         Intent intent = new Intent(this, AteriaNakyma.class);
-        intent.putExtra("date", dateish);
+        intent.putExtra("date", splitMore[0]);
+        intent.putExtra("day", date[0]);
         startActivity(intent);
 
     }
