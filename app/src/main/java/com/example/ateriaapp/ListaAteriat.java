@@ -12,6 +12,34 @@ class ListaAteriat {
 
     private ListaAteriat() {
         aterialista = new ArrayList<>();
+
+        Ateria ateria = new Ateria("Laatikko");
+        aterialista.add(ateria);
+        ateria.setDate("08.05.2019");
+
+        Ateria ateria4 = new Ateria("Kaapo");
+        aterialista.add(ateria4);
+        ateria4.setDate("10.05.2019");
+
+        Ateria ateria1 = new Ateria("Pihvi");
+        aterialista.add(ateria1);
+        ateria1.setDate("05.05.2019");
+
+        Ateria ateria2 = new Ateria("Kukkakaali");
+        aterialista.add(ateria2);
+        ateria2.setDate("06.05.2019");
+
+        Ateria ateria5 = new Ateria("Laatikko");
+        aterialista.add(ateria5);
+        ateria5.setDate("07.05.2019");
+
+        Ateria ateria6 = new Ateria("Laatikko");
+        aterialista.add(ateria6);
+        ateria6.setDate("08.05.2019");
+
+        Ateria ateria7 = new Ateria("Laatikko");
+        aterialista.add(ateria7);
+        ateria7.setDate("09.05.2019");
     }
 
     public ArrayList<Ateria> getAterialista() {

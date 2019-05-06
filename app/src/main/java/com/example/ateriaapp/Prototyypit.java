@@ -12,6 +12,11 @@ class Prototyypit {
 
     private Prototyypit() {
         prototyypit = new ArrayList<>();
+
+        prototyypit.add("Laatikko");
+        prototyypit.add("Kaapo");
+        prototyypit.add("Pihvi");
+        prototyypit.add("Kukkakaali");
     }
     public ArrayList<String> getPrototyypit() {
         return prototyypit;

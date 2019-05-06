@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,48 +23,14 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     public TextView day;
-    public ArrayList<Ateria> lista2;
     public ArrayList<Ateria> listaOC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.d(TAG, "onCreate: Hello");
         listaOC = ListaAteriat.getInstance().getAterialista();
-
-        Ateria ateria = new Ateria("Laatikko");
-        listaOC.add(ateria);
-        ateria.setDate("08.05.2019");
-
-        Ateria ateria4 = new Ateria("Kaapo");
-        listaOC.add(ateria4);
-        ateria4.setDate("10.05.2019");
-
-        Ateria ateria1 = new Ateria("Pihvi");
-        listaOC.add(ateria1);
-        ateria1.setDate("05.05.2019");
-
-        Ateria ateria2 = new Ateria("Kukkakaali");
-        listaOC.add(ateria2);
-        ateria2.setDate("06.05.2019");
-
-        Ateria ateria5 = new Ateria("Laatikko");
-        listaOC.add(ateria5);
-        ateria5.setDate("07.05.2019");
-
-        Ateria ateria6 = new Ateria("Laatikko");
-        listaOC.add(ateria6);
-        ateria6.setDate("08.05.2019");
-
-        Ateria ateria7 = new Ateria("Laatikko");
-        listaOC.add(ateria7);
-        ateria7.setDate("09.05.2019");
-
-        Prototyypit.getInstance().addToPrototypeArray("Laatikko");
-        Prototyypit.getInstance().addToPrototypeArray("Kaapo");
-        Prototyypit.getInstance().addToPrototypeArray("Pihvi");
-        Prototyypit.getInstance().addToPrototypeArray("Kukkakaali");
 
         setupDays();
     }
@@ -133,10 +100,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "setupDays: Olion Date on: " +olio.getDate());
 
                 if (olio.getDate().equals(newDate)) {
-                    Log.d(TAG, "setupDays: Olio Found.");
+                    Log.d(TAG, "setupDays: Olio Found. Date was "+newDate);
                     dateText = ""+dateText+ ""+ olio.getNimi()+"\n";
                 } else {
-                    Log.d(TAG, "setupDays: Olio not found");
+                    Log.d(TAG, "setupDays: Olio not found. Olion date "+ ListaAteriat.getInstance().getAteria(x).getDate() + " haettu päivä oli "+newDate);
                 }
             }
             dateText = ""+dateText+"Klikkaa Lisätäksesi Ateria";
@@ -155,8 +122,9 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(view.getId());
         Log.d(TAG, "addMeal: "+ textView.getText());
         String fulldate = textView.getText().toString();
-        String[] date = fulldate.split(" ", 3);
-        Log.d(TAG, "addMeal: "+date[0]+" "+date[1]);
+        Log.d(TAG, "addMeal: Fulldate muuttuja on "+fulldate);
+        String[] date = fulldate.split(" ", 5);
+        Log.d(TAG, "addMeal: "+date[0]+" | "+date[1]+ " | " +date[2]+ " | " +date[3]+ " | "+date[4]);
         String dateish =  ""+date[0]+" "+date[1];
         Intent intent = new Intent(this, AteriaNakyma.class);
         intent.putExtra("date", dateish);
