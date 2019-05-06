@@ -1,8 +1,7 @@
 package com.example.ateriaapp;
 
-import android.util.Log;
-
 import java.util.ArrayList;
+
 //aterialuokka jonka parometreinä nimi ja arraylist johon tulee ainesosat.
 public class Ateria {
 
@@ -12,9 +11,6 @@ public class Ateria {
     private String date;
     private ArrayList<String> ainesosat = new ArrayList<>();
     public ArrayList<String> kaikkiainesosat = new ArrayList<>();
-    public Aterialistatesti lista;
-
-
 
     public void setDate(String date) {
         this.date = date;
@@ -30,13 +26,8 @@ public class Ateria {
 
     //constructori
     public Ateria(String nimi) {
-
         this.nimi = nimi;
     }
-
-
-
-
 
 //setteri ainesosille laittaa ainesosat tietylle oliolle arraylist muodossa.
     public void setAinesosat(String aine1,String aine2,String aine3, String aine4, String aine5, String aine6, String aine7){
@@ -53,5 +44,9 @@ public class Ateria {
 
     }
 
-//Kikkihiiri
+
+    @Override
+    public String toString() {
+        return "" + nimi;
+    }
 }

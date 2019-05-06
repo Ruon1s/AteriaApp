@@ -1,9 +1,15 @@
+/* <-- DID NOT WORK. SAVED FOR LATER USE -->
+
 package com.example.ateriaapp;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Aterialistatesti {
+    public ArrayList<Ateria> getAterialista() {
+        return aterialista;
+    }
+
     public ArrayList<Ateria> aterialista = new ArrayList<>();
     public ArrayList<Ateria> prototyypit = new ArrayList<>();
 
@@ -36,7 +42,5 @@ public class Aterialistatesti {
 
     }
 
-
-
-
 }
+*/

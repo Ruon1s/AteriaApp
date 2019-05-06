@@ -7,15 +7,11 @@ package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,62 +22,48 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     public TextView day;
-    public Aterialistatesti lista;
     public ArrayList<Ateria> lista2;
+    public ArrayList<Ateria> listaOC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        lista = Aterialistatesti.getInstance();
-        lista2 = Aterialistatesti.getInstance().prototyypit;
+
+        listaOC = ListaAteriat.getInstance().getAterialista();
+
         Ateria ateria = new Ateria("Laatikko");
-        lista.prototyypit.add(ateria);
-        ateria.setDate("04.05.2019");
-        lista.aterialista.add(ateria);
+        listaOC.add(ateria);
+        ateria.setDate("08.05.2019");
+
         Ateria ateria4 = new Ateria("Kaapo");
-        lista.prototyypit.add(ateria4);
-        ateria4.setDate("05.05.2019");
-        lista.aterialista.add(ateria4);
+        listaOC.add(ateria4);
+        ateria4.setDate("10.05.2019");
+
         Ateria ateria1 = new Ateria("Pihvi");
-        lista.prototyypit.add(ateria1);
+        listaOC.add(ateria1);
         ateria1.setDate("05.05.2019");
-        lista.aterialista.add(ateria1);
+
         Ateria ateria2 = new Ateria("Kukkakaali");
-        lista.prototyypit.add(ateria2);
+        listaOC.add(ateria2);
         ateria2.setDate("06.05.2019");
-        lista.aterialista.add(ateria2);
+
         Ateria ateria5 = new Ateria("Laatikko");
-        lista.prototyypit.add(ateria5);
+        listaOC.add(ateria5);
         ateria5.setDate("07.05.2019");
-        lista.aterialista.add(ateria5);
+
         Ateria ateria6 = new Ateria("Laatikko");
-        lista.prototyypit.add(ateria6);
+        listaOC.add(ateria6);
         ateria6.setDate("08.05.2019");
-        lista.aterialista.add(ateria6);
+
         Ateria ateria7 = new Ateria("Laatikko");
-        lista.prototyypit.add(ateria7);
+        listaOC.add(ateria7);
         ateria7.setDate("09.05.2019");
-        lista.aterialista.add(ateria7);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("shared homppelit", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(lista2);
-        editor.putString("task list", json);
-        editor.apply();
-
-
-        Log.d(TAG, "onCreate: " +lista.prototyypit.size());
-        for (int w = 0; w < lista.aterialista.size() ; w++) {
-            Log.d(TAG, "onCreate: "+lista.getAteria(w).toString());
-
-            Log.d(TAG, "onCreate: " +lista.prototyypit.size());
-        }
-
-
-
-
+        Prototyypit.getInstance().addToPrototypeArray("Laatikko");
+        Prototyypit.getInstance().addToPrototypeArray("Kaapo");
+        Prototyypit.getInstance().addToPrototypeArray("Pihvi");
+        Prototyypit.getInstance().addToPrototypeArray("Kukkakaali");
 
         setupDays();
     }
@@ -128,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             SimpleDateFormat sdf1 = new SimpleDateFormat("E", Locale.US);
             String newDate1 = sdf1.format(cal.getTime());
             newDate1 = convertDayName(newDate1);
-            Log.d(TAG, "setupDays: " +newDate1+" Size of List is "+lista.aterialista.size());
+            Log.d(TAG, "setupDays: " +newDate1+" Size of List is "+ListaAteriat.getInstance().getAterialista().size());
             if (i==0) {
                 day = (TextView) findViewById(R.id.viikonpaiva1);
             } else if (i==1) {
@@ -146,8 +128,8 @@ public class MainActivity extends AppCompatActivity {
             }
             String dateText = ""+newDate1+" "+newDate+"\n";
 
-            for (int x = 0 ; x < lista.aterialista.size() ; x++) {
-                Ateria olio = lista.getAteria(x);
+            for (int x = 0 ; x < ListaAteriat.getInstance().getAterialista().size() ; x++) {
+                Ateria olio = ListaAteriat.getInstance().getAteria(x);
                 Log.d(TAG, "setupDays: Olion Date on: " +olio.getDate());
 
                 if (olio.getDate().equals(newDate)) {
@@ -159,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
             }
             dateText = ""+dateText+"Klikkaa Lisätäksesi Ateria";
             day.setText(dateText);
-
         }
     }
 

@@ -13,11 +13,12 @@ import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class lisaaAteria extends AppCompatActivity {
 
     //olio declaration
-    private Aterialistatesti aterialista;
+    private ListaAteriat aterialista;
     public ConstraintLayout container;
     public EditText ruoka_aine, ruoka_aine2, ruoka_aine3, ruoka_aine4, ruoka_aine5, ruoka_aine6, ruoka_aine7, ateriaNimi;
 
@@ -26,7 +27,7 @@ public class lisaaAteria extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lisaa_ateria);
         //aterialistalle instanssi jotta pysyy samana
-        aterialista = Aterialistatesti.getInstance();
+        aterialista = ListaAteriat.getInstance();
         container = (ConstraintLayout) findViewById(R.id.LisaaAteria);
         ateriaNimi = (EditText) findViewById(R.id.ateriaNimi);
         ruoka_aine = (EditText) findViewById(R.id.ruoka_aine);
