@@ -59,6 +59,7 @@ public class AteriaNakyma extends AppCompatActivity {
              ateria.setDate(date);
              Log.d(TAG, "onItemClick: date: "+date);
              ListaAteriat.getInstance().aterialista.add(ateria);
+             finish();
          }
      });
 
