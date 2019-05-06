@@ -2,7 +2,7 @@ package com.example.ateriaapp;
 
 import java.util.ArrayList;
 
-//aterialuokka jonka parometreinä nimi ja arraylist johon tulee ainesosat.
+//aterialuokka jonka parametreinä nimi ja arraylist johon tulee ainesosat.
 public class Ateria {
 
     final static String TAG = "Ateria.Java";

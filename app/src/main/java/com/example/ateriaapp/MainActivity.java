@@ -6,10 +6,16 @@ package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,15 +28,61 @@ public class MainActivity extends AppCompatActivity {
     public TextView day;
     public ArrayList<Ateria> listaOC;
 
+    private void saveAteria() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+
+        String json = gson.toJson(listaOC);
+        Log.d("saveAteria", json);
+        editor.putString("Ateria", json);
+        editor.apply();
+    }
+
+    private void loadAteria(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("shared pref", null);
+
+
+            Log.d("loadAteria", "loadateria käynnistyi");
+            Type type = new TypeToken<ArrayList<Ateria>>() {}.getType();
+            listaOC = gson.fromJson(json, type);
+        }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Hello");
         listaOC = ListaAteriat.getInstance().getAterialista();
-
         setupDays();
+        loadAteria();
     }
+
+
+
+    private void savePrototype() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        Log.d("tallentui","");
+        String json = gson.toJson(Prototyypit.getInstance());
+        Log.d("savePrototype", "2");
+        editor.putString("Prototyyppi", json);
+        Log.d("savePrototype", json);
+        editor.apply();
+    }
+
+    private void loadPrototype(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("shared pref", null);
+        Log.d ("loadattu data", json);
+        Type type = new TypeToken<ArrayList<Prototyypit>>() {}.getType();
+    }
+
+
 
     /**
      * <p>Function will translate the English name of the day into Finnish</p>
@@ -133,7 +185,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        saveAteria();
+
         Log.d(TAG, "onResume: Resumed");
+        Log.d("onResume", "ateriatallennettu");
         setupDays();
     }
 }
