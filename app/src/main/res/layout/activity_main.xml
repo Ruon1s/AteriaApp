@@ -207,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:text="TÄHÄN RUOKIA"
                     android:textAlignment="center"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
 
                 <TextView
