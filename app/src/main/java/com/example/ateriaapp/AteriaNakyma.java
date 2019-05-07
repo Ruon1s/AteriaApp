@@ -33,8 +33,6 @@ public class AteriaNakyma extends AppCompatActivity {
         dateview.setText(dayDate);
         setMealList();
 
-
-
     }
 
     public void createNewMeal(View view) {
