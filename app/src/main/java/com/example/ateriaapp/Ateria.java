@@ -44,7 +44,6 @@ public class Ateria {
 
     }
 
-
     @Override
     public String toString() {
         return "" + nimi;

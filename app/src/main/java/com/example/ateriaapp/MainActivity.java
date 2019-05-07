@@ -26,14 +26,13 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     public TextView day;
-    public ArrayList<Ateria> listaOC;
 
    public void saveAteria(View view) {
+
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
-
-        String json = gson.toJson(listaOC);
+        String json = gson.toJson(ListaAteriat.getInstance().getAterialista());
         Log.d("saveAteria", json);
         editor.putString("Ateria", json);
         editor.apply();
@@ -46,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         String json = sharedPreferences.getString("Ateria", null);
             Log.d("loadAteria", "loadateria käynnistyi");
             Type type = new TypeToken<ArrayList<Ateria>>() {}.getType();
-            listaOC = gson.fromJson(json, type);
-            Log.d("loadAteria", gson.toJson(listaOC));
+            ListaAteriat.getInstance().aterialista = gson.fromJson(json, type);
+            Log.d("loadAteria", gson.toJson(ListaAteriat.getInstance().aterialista));
             setupDays();
         }
 
@@ -56,11 +55,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Hello");
-        listaOC = ListaAteriat.getInstance().getAterialista();
         setupDays();
     }
-
-
 
     private void savePrototype() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
@@ -81,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d ("loadattu data", json);
         Type type = new TypeToken<ArrayList<Prototyypit>>() {}.getType();
     }
-
-
 
     /**
      * <p>Function will translate the English name of the day into Finnish</p>
@@ -126,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             SimpleDateFormat sdf1 = new SimpleDateFormat("E", Locale.US);
             String newDate1 = sdf1.format(cal.getTime());
             newDate1 = convertDayName(newDate1);
-            Log.d(TAG, "setupDays: " +newDate1+" Size of List is "+listaOC.size());
+            Log.d(TAG, "setupDays: " +newDate1+" Size of List is "+ListaAteriat.getInstance().aterialista.size());
             if (i==0) {
                 day = (TextView) findViewById(R.id.viikonpaiva1);
             } else if (i==1) {
@@ -144,15 +138,15 @@ public class MainActivity extends AppCompatActivity {
             }
             String dateText = ""+newDate1+" "+newDate+"\n";
 
-            for (int x = 0 ; x < ListaAteriat.getInstance().getAterialista().size() ; x++) {
-                Ateria olio = ListaAteriat.getInstance().getAteria(x);
-                Log.d(TAG, "setupDays: Olion Date on: " +olio.getDate());
+            for (int x = 0 ; x < ListaAteriat.getInstance().aterialista.size() ; x++) {
+                Ateria olio = ListaAteriat.getInstance().aterialista.get(x);
+                Log.d(TAG, "setupDays: Olion Date on: " +olio.getDate()+ "Indeksi on "+x);
 
                 if (olio.getDate().equals(newDate)) {
                     Log.d(TAG, "setupDays: Olio Found. Date was "+newDate);
                     dateText = ""+dateText+ ""+ olio.getNimi()+"\n";
                 } else {
-                    Log.d(TAG, "setupDays: Olio not found. Olion date "+ ListaAteriat.getInstance().getAteria(x).getDate() + " haettu päivä oli "+newDate);
+                    Log.d(TAG, "setupDays: Olio not found. Olion date "+ ListaAteriat.getInstance().getAterialista().get(x).getDate() + " haettu päivä oli "+newDate);
                 }
             }
             dateText = ""+dateText+"Klikkaa Lisätäksesi Ateria";
@@ -185,20 +179,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-
         Log.d(TAG, "onResume: Resumed");
         Log.d("onResume", "ateriatallennettu");
         setupDays();
-    }
-
-    protected void onStart(){
-        super.onStart();
-
-    }
-
-    protected void onStop(){
-        super.onStop();
     }
 
 }
