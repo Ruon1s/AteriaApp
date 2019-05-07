@@ -12,6 +12,9 @@ public class Ateria {
     private ArrayList<String> ainesosat = new ArrayList<>();
     public ArrayList<String> kaikkiainesosat = new ArrayList<>();
 
+    public Ateria(String nimi) {
+        this.nimi = nimi;
+    }
     public void setDate(String date) {
         this.date = date;
     }
@@ -23,12 +26,6 @@ public class Ateria {
     public String getNimi() {
         return nimi;
     }
-
-    //constructori
-    public Ateria(String nimi) {
-        this.nimi = nimi;
-    }
-
 //setteri ainesosille laittaa ainesosat tietylle oliolle arraylist muodossa.
     public void setAinesosat(String aine1,String aine2,String aine3, String aine4, String aine5, String aine6, String aine7){
         ainesosat.add(aine1);
