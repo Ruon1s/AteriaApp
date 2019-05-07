@@ -32,8 +32,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
-        android:text="Lisää ruoka-aine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ateriaNimi" />
 
@@ -45,8 +45,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
-        android:text="Lisää ruoka-aine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine" />
 
@@ -58,8 +58,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
-        android:text="Lisää ruoka-aine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine2" />
 
@@ -71,10 +71,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
-        android:text="Lisää ruoka-aine"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruoka_aine2" />
+        app:layout_constraintTop_toBottomOf="@+id/ruoka_aine3" />
 
     <EditText
         android:id="@+id/ruoka_aine5"
@@ -84,8 +84,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
-        android:text="Lisää ruoka-aine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine4" />
 
@@ -97,8 +97,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
-        android:text="Lisää ruoka-aine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine5" />
 
@@ -110,8 +110,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
-        android:text="Lisää ruoka-aine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine6" />
 
@@ -122,11 +122,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="addIngredient"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="returnButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ruoka_aine"
         app:layout_constraintTop_toBottomOf="@+id/ateriaNimi"
         app:srcCompat="@android:drawable/ic_input_add" />
