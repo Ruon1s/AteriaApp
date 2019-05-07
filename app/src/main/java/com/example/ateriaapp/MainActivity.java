@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public TextView day;
     public ArrayList<Ateria> listaOC;
 
-    private void saveAteria() {
+   public void saveAteria(View view) {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
@@ -37,17 +37,18 @@ public class MainActivity extends AppCompatActivity {
         Log.d("saveAteria", json);
         editor.putString("Ateria", json);
         editor.apply();
+
     }
 
-    private void loadAteria(){
+    public void loadAteria(View view){
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = sharedPreferences.getString("shared pref", null);
-
-
+        String json = sharedPreferences.getString("Ateria", null);
             Log.d("loadAteria", "loadateria käynnistyi");
             Type type = new TypeToken<ArrayList<Ateria>>() {}.getType();
             listaOC = gson.fromJson(json, type);
+            Log.d("loadAteria", gson.toJson(listaOC));
+            setupDays();
         }
 
     @Override
@@ -57,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Hello");
         listaOC = ListaAteriat.getInstance().getAterialista();
         setupDays();
-        loadAteria();
     }
 
 
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
             SimpleDateFormat sdf1 = new SimpleDateFormat("E", Locale.US);
             String newDate1 = sdf1.format(cal.getTime());
             newDate1 = convertDayName(newDate1);
-            Log.d(TAG, "setupDays: " +newDate1+" Size of List is "+ListaAteriat.getInstance().getAterialista().size());
+            Log.d(TAG, "setupDays: " +newDate1+" Size of List is "+listaOC.size());
             if (i==0) {
                 day = (TextView) findViewById(R.id.viikonpaiva1);
             } else if (i==1) {
@@ -185,10 +185,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        saveAteria();
+
 
         Log.d(TAG, "onResume: Resumed");
         Log.d("onResume", "ateriatallennettu");
         setupDays();
     }
+
+    protected void onStart(){
+        super.onStart();
+
+    }
+
+    protected void onStop(){
+        super.onStop();
+    }
+
 }
