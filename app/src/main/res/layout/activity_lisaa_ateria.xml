@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/ateriaNimi"
-        android:layout_width="379dp"
+        android:layout_width="fill_parent"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -17,16 +17,15 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
+        android:hint="Aterian nimi"
         android:inputType="textPersonName"
-        android:text="Aterian nimi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateView" />
 
     <EditText
         android:id="@+id/ruoka_aine"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -34,84 +33,92 @@
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ateriaNimi" />
 
     <EditText
         android:id="@+id/ruoka_aine2"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/AddButton"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine" />
 
     <EditText
         android:id="@+id/ruoka_aine3"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine2" />
 
     <EditText
         android:id="@+id/ruoka_aine4"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine3" />
 
     <EditText
         android:id="@+id/ruoka_aine5"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine4" />
 
     <EditText
         android:id="@+id/ruoka_aine6"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine5" />
 
     <EditText
         android:id="@+id/ruoka_aine7"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine6" />
 
@@ -119,16 +126,16 @@
         android:id="@+id/AddButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorButtonBackground"
         android:onClick="returnButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ruoka_aine"
         app:layout_constraintTop_toBottomOf="@+id/ateriaNimi"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@drawable/plusmini" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -149,14 +156,27 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Lisää uusi ateria"
+        android:text="LISÄÄ UUSI ATERIA"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/colorBackground"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:fontFamily="sans-serif-condensed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="52dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
