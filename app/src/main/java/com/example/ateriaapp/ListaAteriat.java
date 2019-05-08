@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
     /**
      * Singleton luokka Aterialistan esittämiseen.
-     * @author Aku Telimaa
+     * @author Mimosa Kovero
      * @since 1.0
      */
 class ListaAteriat {

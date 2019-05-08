@@ -1,11 +1,10 @@
 package com.example.ateriaapp;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
     /**
      * <p>Singleton luokka, joka pitää sisällään kaksi arrayListaa.</p>
-     * @author Aku Telimaa
+     * @author Mimosa Kovero
      * @since 1.0
      */
 class Prototyypit {
@@ -45,6 +44,7 @@ class Prototyypit {
          * @param aine5 mahdollinen ainesosa
          * @param aine6 mahdollinen ainesosa
          * @param aine7 mahdollinen ainesosa
+         * @author Aku Telimaa
          */
     public void addToPrototypeArray(String nimi, String aine1, String aine2, String aine3, String aine4, String aine5, String aine6, String aine7) {
         prototyypit.add(nimi);
