@@ -197,8 +197,8 @@
     <Button
         android:id="@+id/AddButton"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="86dp"
-        android:layout_height="52dp"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
         android:layout_marginTop="6dp"
         android:background="@color/colorPrimary"
         android:text="LISÄÄ"
