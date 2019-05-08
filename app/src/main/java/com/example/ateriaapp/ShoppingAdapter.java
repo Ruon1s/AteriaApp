@@ -26,19 +26,19 @@ public class ShoppingAdapter extends ArrayAdapter<Ateria> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View listItemView = convertView;
-        if(listItemView == null ) {
-            listItemView = LayoutInflater.from(getContext()).inflate(
+        View listView = convertView;
+        if(listView == null ) {
+            listView = LayoutInflater.from(getContext()).inflate(
                     R.layout.ostokset, parent, false);
         }
         Ateria getPos = getItem(position);
 
-        TextView mealName = (TextView) listItemView.findViewById(R.id.mealName);
+        TextView mealName = (TextView) listView.findViewById(R.id.mealName);
         mealName.setText(getPos.getNimi());
 
-        TextView mealIngs = (TextView) listItemView.findViewById(R.id.mealIngredients);
+        TextView mealIngs = (TextView) listView.findViewById(R.id.mealIngredients);
 
         mealIngs.setText(getPos.getShopListString(getPos));
-        return listItemView;
+        return listView;
     }
 }
