@@ -4,23 +4,16 @@
 
 package com.example.ateriaapp;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 /**
  * <p>Luokka Ateria olioille joita lisätään viikkonäkymään päivämäärän mukaan.</p>
  *
  * @version 1.0 8.5.2019
- * @author Aku Telimaa ja Mikael Ruonala
+ * @author Aku Telimaa
+ * @author Mikael Ruonala
  */
 public class Ateria {
-
-    /**
-     * <p>public final static String TAG: debuggausta varten tagi</p>
-     */
-
-    final static String TAG = "Ateria.Java";
     /**
      * <p>private String nimi: aterian nimi</p>
      */

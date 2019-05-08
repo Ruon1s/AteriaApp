@@ -8,17 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import org.w3c.dom.Text;
-
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,13 +23,22 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-
+    /**
+     *  <p>Luokan public muuttujen alustukset. dateText on String, joka on päivämäärä
+     *  ja on muotoa "dd.MM.yyyy". day on TextView, johon viedään päivän nimi.
+     *  numberofDate on TextView johon viedään päivämäärä muodossa "dd.MM.yyyy"
+     *  ruoat TextView listaa tulevien päivien Ateria-luokan oliot.</p>
+     */
     public String dateText;
     public TextView day;
     public TextView numberOfDate;
     public TextView ruoat;
 
-
+    /**
+     * Override onCreate methodille, jossa kutsutaan SharedPreferenceistä Ateriat,
+     * Prototyypit ja prototyyppi-ruokien raaka-aineet.
+     * Samalla alustetaan ruokalistan instanssi.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +48,11 @@ public class MainActivity extends AppCompatActivity {
         loadAteria();
         loadPrototype();
         loadIngredients();
-
-
     }
 
+    /**
+     * <p>Tallentaa Aterialistan SharedPreferencesiin. Kutsutaan onStop() metodissa.</p>
+     */
     public void saveAteria() {
 
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
@@ -59,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "saveAteria: Ateria Saved");
     }
 
+    /**
+     * <p>Lataa SharedPreferencestä tallennetut Ateria-oliot ja tallentaa ne
+     * ListaAteriat-luokan aterialistalle.</p>
+     * @throws NullPointerException, jos json saa arvoksi null.
+     */
     public void loadAteria() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         Gson gson = new Gson();
@@ -75,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * <p>Tallentaa Prototyypit listan SharedPreferencesiin. Kutsutaan onStop() metodissa.</p>
+     */
     private void savePrototype() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -86,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "savePrototype: Saved");
     }
 
+    /**
+     * <p>Lataa SharedPreferencestä tallennetut Prototyyppit ja tallentaa ne
+     * Prototyypit-luokan prototyypit listalle.</p>
+     * @throws NullPointerException, jos json saa arvoksi null.
+     */
     private void loadPrototype(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         Gson gson = new Gson();
@@ -99,7 +116,9 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "loadPrototype: Loaded");
         }
     }
-    
+    /**
+     * <p>Tallentaa ingredients listan SharedPreferencesiin. Kutsutaan onStop() metodissa.</p>
+     */
     private void saveIngredients() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -111,6 +130,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "saveIngredients: "+json);
     }
 
+    /**
+     * <p>Lataa SharedPreferencestä tallennetut Prototyyppi luokan ingredients listat ja tallentaa ne
+     * Prototyypit luokan ingredients listalle.</p>
+     * @throws NullPointerException, jos json saa arvoksi null.
+     */
     private void loadIngredients() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         Gson gson = new Gson();
@@ -127,9 +151,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * <p>Function will translate the English name of the day into Finnish</p>
-     * @param SDFDay Abbreviation of the English name of the day ( Mon, Tue, Wed, Thu, Fri, Sat, Sun )
-     * @return Name of the day in Finnish
+     * <p>Funktio kääntää englanninkieliset päiviennimien lyhenteet
+     * suomenkielelle kokonaisiksi sanoiksi./p>
+     * @param SDFDay Funktioon tuotu englanninkielinen päivän lyhenne
+     * ( Mon, Tue, Wed, Thu, Fri, Sat, Sun )
+     * @return Tuodun lyhenteen suomenkielinen kokonimi
+     * (Maanantai, Tiistai, Keskiviikko, Torstai, Perjantai, Launtai, Sunnuntai)
      * @since 1.0
      * @author Aku Telimaa
      */
@@ -153,8 +180,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * <p>Setups 7 days to the front page
-     * and parse existing meals to each day</p>
+     * <p>Asettaa viikkonäkymään seuraavat seitsemän(7) päivää
+     * ja parsee niihin Aterialistassa olevat ruoat päivämäärien mukaan</p>
      * @author Aku Telimaa
      * @since 1.0
      */
@@ -203,7 +230,6 @@ public class MainActivity extends AppCompatActivity {
                 numberOfDate = (TextView) linearLayout.findViewById(R.id.date);
                 ruoat = (TextView) linearLayout.findViewById(R.id.ateriat);
             }
-
             dateText = "";
             if (ListaAteriat.getInstance().aterialista != null) {
                 for (int x = 0; x < ListaAteriat.getInstance().aterialista.size(); x++) {
@@ -214,7 +240,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-
             ruoat.setText(dateText);
             day.setText(paiva);
             numberOfDate.setText(date);
@@ -222,26 +247,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-        /**
-         * <p>Clicking the date will open up new activity</p>
-         * @param view Clicked day.
-         * @author Aku Telimaa
-         * @since 1.0
-         */
-        public void addMeal (View view){
-            LinearLayout linearLayout = (LinearLayout) findViewById(view.getId());
-            TextView dateView = (TextView) linearLayout.findViewById(R.id.date);
-            TextView dayView = (TextView) linearLayout.findViewById(R.id.paiva);
-            String date =  dateView.getText().toString();
-            String day = dayView.getText().toString();
-            Intent intent = new Intent(this, AteriaNakyma.class);
-            intent.putExtra("date", date);
-            intent.putExtra("day", day);
-            startActivity(intent);
-        }
+    /**
+     * <p>Klikatun päivän painaminen avaa uuden Activityn ja vie uuteen
+     * activityyn painetun päivämäärän ja viikonpäivän. Seuraava activity
+     * on activity_ateria_nakyma.xml / AteriaNakyma.java</p>
+     * @param view Klikatun päivän container, joka on LinearLayout.
+     * @author Aku Telimaa
+     * @since 1.0
+     */
+    public void addMeal (View view){
+        LinearLayout linearLayout = (LinearLayout) findViewById(view.getId());
+        TextView dateView = (TextView) linearLayout.findViewById(R.id.date);
+        TextView dayView = (TextView) linearLayout.findViewById(R.id.paiva);
+        String date =  dateView.getText().toString();
+        String day = dayView.getText().toString();
+        Intent intent = new Intent(this, AteriaNakyma.class);
+        intent.putExtra("date", date);
+        intent.putExtra("day", day);
+        startActivity(intent);
+    }
 
-
-
+    /**
+     * <p>Vie suoraan activity_lisää_ateria activityyn</p>
+     * @param view Klikatun n
+     */
     public void createNewMeal(View view) {
         Intent intent = new Intent(this, lisaaAteria.class);
         startActivity(intent);
