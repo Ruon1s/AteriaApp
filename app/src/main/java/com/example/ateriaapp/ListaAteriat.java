@@ -1,19 +1,26 @@
 package com.example.ateriaapp;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 class ListaAteriat {
     public ArrayList<Ateria> aterialista;
 
-    private static final ListaAteriat ourInstance = new ListaAteriat();
+    public static ListaAteriat ourInstance = new ListaAteriat();
 
     static ListaAteriat getInstance() {
+        if (ourInstance == null) {
+            ourInstance = new ListaAteriat();
+        }
         return ourInstance;
     }
 
     private ListaAteriat() {
-        aterialista = new ArrayList<>();
-            }
+        aterialista = new ArrayList<Ateria>();
+
+        Log.d("aterialista", "ListaAteriat: Created ");
+    }
 
     public ArrayList<Ateria> getAterialista() {
         return aterialista;

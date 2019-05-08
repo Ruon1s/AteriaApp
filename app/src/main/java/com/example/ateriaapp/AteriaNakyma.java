@@ -55,8 +55,9 @@ public class AteriaNakyma extends AppCompatActivity {
                 Ateria ateria = new Ateria(nimi);
 
                 ateria.setDate(date);
-                ListaAteriat.getInstance().aterialista.add(ateria);
-
+                Log.d(TAG, "onItemClick: "+ateria+" | "+ListaAteriat.getInstance());
+                ListaAteriat.getInstance().getAterialista().add(ateria);
+                Log.d(TAG, "onItemClick: "+Prototyypit.getInstance().ingredients.get(position).size());
                 for (int s = 0 ; s < Prototyypit.getInstance().getIngredients().get(position).size() ; s++) {
                     String aine = Prototyypit.getInstance().getIngredients().get(position).get(s).toString();
 

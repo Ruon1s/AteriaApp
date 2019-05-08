@@ -4,8 +4,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 class Prototyypit {
-    private ArrayList<String> prototyypit;
-    private ArrayList<ArrayList> ingredients;
+    public ArrayList<String> prototyypit;
+    public ArrayList<ArrayList> ingredients;
 
     private static final Prototyypit ourInstance = new Prototyypit();
 

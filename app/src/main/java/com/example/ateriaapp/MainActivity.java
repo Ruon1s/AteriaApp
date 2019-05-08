@@ -34,7 +34,21 @@ public class MainActivity extends AppCompatActivity {
     public TextView numberOfDate;
     public TextView ruoat;
 
-   public void saveAteria(View view) {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ListaAteriat.getInstance();
+        Log.d(TAG, "onCreate: Initiated");
+        loadAteria();
+        loadPrototype();
+        loadIngredients();
+
+
+    }
+
+    public void saveAteria() {
 
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -42,40 +56,74 @@ public class MainActivity extends AppCompatActivity {
         String json = gson.toJson(ListaAteriat.getInstance().getAterialista());
         editor.putString("Ateria", json);
         editor.apply();
-
+        Log.d(TAG, "saveAteria: Ateria Saved");
     }
 
-    public void loadAteria(View view){
+    public void loadAteria() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = sharedPreferences.getString("Ateria", null);
-            Type type = new TypeToken<ArrayList<Ateria>>() {}.getType();
+        String json = sharedPreferences.getString(
+                "Ateria",
+                null
+        );
+        Type type = new TypeToken<ArrayList<Ateria>>() {
+        }.getType();
+        if (json != null) {
             ListaAteriat.getInstance().aterialista = gson.fromJson(json, type);
+            Log.d(TAG, "loadAteria: " + ListaAteriat.getInstance().aterialista);
             setupDays();
         }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setupDays();
-
     }
+
 
     private void savePrototype() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(Prototyypit.getInstance());
+        String json = gson.toJson(Prototyypit.getInstance().getPrototyypit());
         editor.putString("Prototyyppi", json);
         editor.apply();
+        Log.d(TAG, "savePrototype: Saved");
     }
 
     private void loadPrototype(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = sharedPreferences.getString("shared pref", null);
-        Type type = new TypeToken<ArrayList<Prototyypit>>() {}.getType();
+        String json = sharedPreferences.getString(
+                "Prototyyppi",
+                null
+        );
+        Type type = new TypeToken<ArrayList<String>>() {}.getType();
+        if (json != null) {
+            Prototyypit.getInstance().prototyypit = gson.fromJson(json, type);
+            Log.d(TAG, "loadPrototype: Loaded");
+        }
+    }
+    
+    private void saveIngredients() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(Prototyypit.getInstance().getIngredients());
+        editor.putString("Ingredients", json);
+        editor.apply();
+        Log.d(TAG, "saveIngredients: Saved");
+        Log.d(TAG, "saveIngredients: "+json);
+    }
+
+    private void loadIngredients() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString(
+                "Ingredients",
+                null
+        );
+        Type type = new TypeToken<ArrayList<ArrayList>>() {}.getType();
+        if ( json != null) {
+            Prototyypit.getInstance().ingredients = gson.fromJson(json, type);
+            Log.d(TAG, "loadIngredients: Loaded");
+            Log.d(TAG, "loadIngredients: "+Prototyypit.getInstance().ingredients);
+        }
     }
 
     /**
@@ -157,11 +205,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             dateText = "";
-            for (int x = 0; x < ListaAteriat.getInstance().aterialista.size(); x++) {
-                Ateria olio = ListaAteriat.getInstance().aterialista.get(x);
+            if (ListaAteriat.getInstance().aterialista != null) {
+                for (int x = 0; x < ListaAteriat.getInstance().aterialista.size(); x++) {
+                    Ateria olio = ListaAteriat.getInstance().aterialista.get(x);
 
-                if (olio.getDate().equals(date)) {
-                    dateText = "" + dateText + "" + olio.getNimi() + "\n";
+                    if (olio.getDate().equals(date)) {
+                        dateText = "" + dateText + "" + olio.getNimi() + "\n";
+                    }
                 }
             }
 
@@ -190,11 +240,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        @Override
-        protected void onResume () {
-            super.onResume();
-            setupDays();
-        }
+
 
     public void createNewMeal(View view) {
         Intent intent = new Intent(this, lisaaAteria.class);
@@ -206,6 +252,45 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: Initiated");
 
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: Initiated");
+    }
+
+    @Override
+    protected void onResume () {
+        super.onResume();
+        Log.d(TAG, "onResume: Initiated");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart: Initiated");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setupDays();
+        Log.d(TAG, "onStart: Initiated");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        saveAteria();
+        savePrototype();
+        saveIngredients();
+        Log.d(TAG, "onStop: Initiated");
+    }
 }
+
