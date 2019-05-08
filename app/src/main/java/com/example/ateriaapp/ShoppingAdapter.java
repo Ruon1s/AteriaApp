@@ -30,7 +30,7 @@ public class ShoppingAdapter extends ArrayAdapter<Ateria> {
 
         TextView mealIngs = (TextView) listItemView.findViewById(R.id.mealIngredients);
 
-        mealIngs.setText(getPos.getShopListString());
+        mealIngs.setText(getPos.getShopListString(getPos));
         return listItemView;
     }
 }

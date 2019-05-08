@@ -11,13 +11,12 @@ public class Ateria {
 
     private String nimi;
     private String date;
-
-    public ArrayList<String> ainesosat;
+    private ArrayList<String> ainesosat;
 
 
     public Ateria(String nimi) {
         this.nimi = nimi;
-        ainesosat = new ArrayList<String>();
+        this.ainesosat = new ArrayList<String>();
     }
 
     public void setDate(String date) {
@@ -33,16 +32,17 @@ public class Ateria {
     }
 
     public ArrayList<String> getAinesosat() {
-        return ainesosat;
+        return this.ainesosat;
     }
 
-    public String getShopListString() {
+    public String getShopListString(Ateria ateria) {
         String aineet = "";
-        for (int i = 0 ; i < this.getAinesosat().size() ; i++) {
-            aineet = ""+aineet+""+this.ainesosat.get(i)+"\n";
+        for (int i = 0 ; i < ateria.ainesosat.size() ; i++) {
+            aineet = ""+aineet+""+ateria.ainesosat.get(i)+"\n";
             Log.d(TAG, "getShopListString: "+aineet);
         }
-        Log.d(TAG, "getShopListString: "+aineet);
+        Log.d(TAG, "getShopListString: aineet :"+aineet);
+        Log.d(TAG, "getShopListString: koko "+ateria.ainesosat.size());
         return aineet;
     }
     public void addIngredient(String aine) {

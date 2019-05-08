@@ -3,6 +3,7 @@ package com.example.ateriaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -38,6 +39,10 @@ public class ostosLista extends AppCompatActivity {
 
             }
         } */
+    }
+
+    private void backButton(View view) {
+        finish();
     }
 
 }
