@@ -23,15 +23,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * li
+ * <p>aterian lisäys lomake</p>
+ *
+ * @version 1.0
+ * @author Aku Telimaa ja Mikael Ruonala
  */
 
 public class lisaaAteria extends AppCompatActivity {
-
+    /**
+     * <p>Tagi helpottamaan debuggia</p>
+     */
     private static final String TAG = "lisaaAteria";
-
+    /**
+     * <p>Lomakkeen tekstikentät tekstinsyöttöä varten</p>
+     */
     public EditText ruoka_aine, ruoka_aine2, ruoka_aine3, ruoka_aine4, ruoka_aine5, ruoka_aine6, ruoka_aine7, ateriaNimi;
-
+    /**
+     * <p>onCreate() laittaa tekstikenttien arvot muuttujiin</p>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +56,10 @@ public class lisaaAteria extends AppCompatActivity {
         ruoka_aine7 = (EditText) findViewById(R.id.ruoka_aine7);
 
     }
-
+    /**
+     * Aku täyttää
+     * @param view
+     */
     public void addButton(View view){
         String nimi = ateriaNimi.getText().toString();
         if (nimi.equals("")) {
