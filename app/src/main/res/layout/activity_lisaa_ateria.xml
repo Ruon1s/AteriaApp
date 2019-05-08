@@ -24,126 +24,104 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateView" />
 
-    <EditText
-        android:id="@+id/ruoka_aine"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Lisää ruoka-aine"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/AddButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ateriaNimi" />
-
-    <EditText
-        android:id="@+id/ruoka_aine2"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="12dp"
         android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Lisää ruoka-aine"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/AddButton"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruoka_aine" />
-
-    <EditText
-        android:id="@+id/ruoka_aine3"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Lisää ruoka-aine"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/AddButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruoka_aine2" />
-
-    <EditText
-        android:id="@+id/ruoka_aine4"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Lisää ruoka-aine"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/AddButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruoka_aine3" />
-
-    <EditText
-        android:id="@+id/ruoka_aine5"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Lisää ruoka-aine"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/AddButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruoka_aine4" />
-
-    <EditText
-        android:id="@+id/ruoka_aine6"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Lisää ruoka-aine"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/AddButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruoka_aine5" />
-
-    <EditText
-        android:id="@+id/ruoka_aine7"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Lisää ruoka-aine"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/AddButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruoka_aine6" />
-
-    <ImageButton
-        android:id="@+id/AddButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/colorButtonBackground"
-        android:onClick="addButton"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/ruoka_aine"
-        app:layout_constraintTop_toBottomOf="@+id/ateriaNimi"
-        app:srcCompat="@drawable/plusmini" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ateriaNimi">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ruoka_aine"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Lisää raaka-aine"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorAccent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="162dp" />
+
+            <EditText
+                android:id="@+id/ruoka_aine2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Lisää raaka-aine"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorAccent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="224dp" />
+
+            <EditText
+                android:id="@+id/ruoka_aine3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Lisää raaka-aine"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorAccent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="290dp" />
+
+            <EditText
+                android:id="@+id/ruoka_aine4"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Lisää raaka-aine"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorAccent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="352dp" />
+
+            <EditText
+                android:id="@+id/ruoka_aine5"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Lisää raaka-aine"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorAccent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="414dp" />
+
+            <EditText
+                android:id="@+id/ruoka_aine6"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Lisää raaka-aine"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorAccent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="476dp" />
+
+            <EditText
+                android:id="@+id/ruoka_aine7"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Lisää raaka-aine"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorAccent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="538dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
     <ImageView
         android:id="@+id/imageView"
@@ -188,5 +166,24 @@
         android:onClick="backButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:onClick="addButton"
+        android:text="Lisää Ruoka"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
