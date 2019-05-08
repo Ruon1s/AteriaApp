@@ -19,6 +19,7 @@
         android:ems="10"
         android:hint="Aterian nimi (Pakollinen)"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateView" />
@@ -33,6 +34,7 @@
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ateriaNimi" />
@@ -47,6 +49,7 @@
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +65,7 @@
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine2" />
@@ -76,6 +80,7 @@
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine3" />
@@ -90,6 +95,7 @@
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine4" />
@@ -104,6 +110,7 @@
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine5" />
@@ -118,6 +125,7 @@
         android:ems="10"
         android:hint="Lisää ruoka-aine"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/AddButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ruoka_aine6" />
