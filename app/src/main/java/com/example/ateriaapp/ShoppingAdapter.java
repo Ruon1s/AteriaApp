@@ -12,8 +12,8 @@ import java.util.ArrayList;
      * <p>Custom ArrayAdapter, jotta listaan voidaan viedä aterialle sekä nimi, että
      * ilmoitetut ainesosat</p>
      * @author Aku Telimaa
-     * @version 1.0
-     * @since 1.0
+     * @since 1.0 8.5.2019
+     * @version 1.0 8.5.2019
      */
 
 public class ShoppingAdapter extends ArrayAdapter<Ateria> {

@@ -5,7 +5,8 @@ import java.util.ArrayList;
     /**
      * <p>Singleton luokka, joka pitää sisällään kaksi arrayListaa.</p>
      * @author Mimosa Kovero
-     * @since 1.0
+     * @since 1.0 8.5.2019
+     * @version 1.0 8.5.2019
      */
 class Prototyypit {
 

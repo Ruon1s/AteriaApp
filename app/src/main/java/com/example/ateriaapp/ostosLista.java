@@ -13,7 +13,9 @@ import java.util.Locale;
 /**
      * <p>Ostoslistassa on listattuna kaikkien tulevien ruokien ainesosat </p>
      * @author Aku Telimaa
-     * @since 1.0
+     * @author Mikael Ruonala
+     * @since 1.0 8.5.2019
+     * @version 1.0 8.5.2019
      */
 public class ostosLista extends AppCompatActivity {
     /**

@@ -15,8 +15,10 @@ import android.widget.TextView;
 
 /**
  * <p>Aterialistanäkymä, jossa näkyy listattuna kaikki ateriat nimien mukaan</p>
- * @version 1.0
- * @author Aku Telimaa ja Mikael Ruonala
+ * @author Aku Telimaa
+ * @author Mikael Ruonala
+ * @since 1.0 8.5.2019
+ * @version 1.0 8.5.2019
  */
 
 public class AteriaNakyma extends AppCompatActivity {

@@ -1,14 +1,9 @@
-/**
- * @author Aku Telimaa
- */
-
 package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +20,7 @@ import java.util.Locale;
  * viikkonäkymänä, jossa esitetään seuraavien seitsemän päivän ruoat.</p>
  * @author Aku Telimaa
  * @since 1.0 8.5.2019
+ * @version 1.0 8.5.2019
  */
 
 public class MainActivity extends AppCompatActivity {

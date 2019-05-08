@@ -8,9 +8,10 @@ import java.util.ArrayList;
 
     /**
      * <p>Luokka Ateria-olioille, joita lisätään viikkonäkymään päivämäärän mukaan.</p>
-     * @version 1.0 8.5.2019
      * @author Aku Telimaa
      * @author Mikael Ruonala
+     * @since 1.0 8.5.2019
+     * @version 1.0 8.5.2019
      */
 public class Ateria {
     /**

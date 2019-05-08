@@ -16,8 +16,10 @@ import android.widget.EditText;
  * Prototyyppi luodaan nimestä, joka on pakkollinen muuttuja.
  * Prototyypillä voi myös olla ainesosia, jotka viedään aterian luonnin yhteydessä
  * ostoslistaan.</p>
- * @version 1.0
- * @author Aku Telimaa ja Mikael Ruonala
+ * @author Aku Telimaa
+ * @author Mikael Ruonala
+ * @since 1.0 8.5.2019
+ * @version 1.0 8.5.2019
  */
 
 public class lisaaAteria extends AppCompatActivity {
