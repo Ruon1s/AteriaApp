@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
@@ -25,9 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="bottom"
+            app:fontFamily="sans-serif-condensed"
             android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="22sp"
             android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
             tools:text="Markkanen" />
 
         <TextView
@@ -39,8 +41,9 @@
             android:paddingLeft="20dp"
             android:layout_weight="1"
             android:gravity="top"
+            app:fontFamily="sans-serif-condensed"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             tools:text="one" />
     </LinearLayout>
 </RelativeLayout>
