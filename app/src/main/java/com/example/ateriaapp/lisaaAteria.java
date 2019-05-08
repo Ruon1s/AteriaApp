@@ -1,3 +1,7 @@
+/**
+ * LisaaAteria 8.5.2019 1.0
+ */
+
 package com.example.ateriaapp;
 
 import androidx.appcompat.app.AlertDialog;
@@ -17,6 +21,10 @@ import android.widget.TextView;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * li
+ */
 
 public class lisaaAteria extends AppCompatActivity {
 
