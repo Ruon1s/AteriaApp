@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(ListaAteriat.getInstance().getAterialista());
-        Log.d("saveAteria", json);
         editor.putString("Ateria", json);
         editor.apply();
 
@@ -50,10 +49,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("Ateria", null);
-            Log.d("loadAteria", "loadateria käynnistyi");
             Type type = new TypeToken<ArrayList<Ateria>>() {}.getType();
             ListaAteriat.getInstance().aterialista = gson.fromJson(json, type);
-            Log.d("loadAteria", gson.toJson(ListaAteriat.getInstance().aterialista));
             setupDays();
         }
 
@@ -61,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "onCreate: Hello");
         setupDays();
 
     }
@@ -70,11 +66,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
-        Log.d("tallentui","");
         String json = gson.toJson(Prototyypit.getInstance());
-        Log.d("savePrototype", "2");
         editor.putString("Prototyyppi", json);
-        Log.d("savePrototype", json);
         editor.apply();
     }
 
@@ -82,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("shared pref", null);
-        Log.d ("loadattu data", json);
         Type type = new TypeToken<ArrayList<Prototyypit>>() {}.getType();
     }
 
@@ -124,11 +116,9 @@ public class MainActivity extends AppCompatActivity {
             Calendar cal = Calendar.getInstance();
             cal.add(Calendar.DAY_OF_MONTH, i);
             String date = sdf.format(cal.getTime());
-            Log.d(TAG, "setupDays: " + date);
             SimpleDateFormat sdf1 = new SimpleDateFormat("E", Locale.US);
             String paiva = sdf1.format(cal.getTime());
             paiva = convertDayName(paiva);
-            Log.d(TAG, "setupDays: " + paiva + " Size of List is " + ListaAteriat.getInstance().aterialista.size());
             if (i == 0) {
                 LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout1);
                 day = (TextView) linearLayout.findViewById(R.id.paiva);
@@ -169,13 +159,9 @@ public class MainActivity extends AppCompatActivity {
             dateText = "";
             for (int x = 0; x < ListaAteriat.getInstance().aterialista.size(); x++) {
                 Ateria olio = ListaAteriat.getInstance().aterialista.get(x);
-                Log.d(TAG, "setupDays: Olion Date on: " + olio.getDate() + "Indeksi on " + x);
 
                 if (olio.getDate().equals(date)) {
-                    Log.d(TAG, "setupDays: Olio Found. Date was " + date);
                     dateText = "" + dateText + "" + olio.getNimi() + "\n";
-                } else {
-                    Log.d(TAG, "setupDays: Olio not found. Olion date " + ListaAteriat.getInstance().getAterialista().get(x).getDate() + " haettu päivä oli " + date);
                 }
             }
 
@@ -198,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
             TextView dayView = (TextView) linearLayout.findViewById(R.id.paiva);
             String date =  dateView.getText().toString();
             String day = dayView.getText().toString();
-            Log.d(TAG, "addMeal: "+date+", "+day);
             Intent intent = new Intent(this, AteriaNakyma.class);
             intent.putExtra("date", date);
             intent.putExtra("day", day);
@@ -208,8 +193,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onResume () {
             super.onResume();
-            Log.d(TAG, "onResume: Resumed");
-            Log.d("onResume", "ateriatallennettu");
             setupDays();
         }
 

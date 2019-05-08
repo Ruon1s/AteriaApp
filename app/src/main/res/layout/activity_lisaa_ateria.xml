@@ -17,7 +17,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="Aterian nimi"
+        android:hint="Aterian nimi (Pakollinen)"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +130,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/colorButtonBackground"
-        android:onClick="returnButton"
+        android:onClick="addButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ruoka_aine"
@@ -139,7 +139,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="448dp"
+        android:layout_width="0dp"
         android:layout_height="66dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.81"

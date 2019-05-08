@@ -41,7 +41,7 @@ public class ostosLista extends AppCompatActivity {
         } */
     }
 
-    private void backButton(View view) {
+    public void backButton(View view) {
         finish();
     }
 

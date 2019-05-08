@@ -39,10 +39,7 @@ public class Ateria {
         String aineet = "";
         for (int i = 0 ; i < ateria.ainesosat.size() ; i++) {
             aineet = ""+aineet+""+ateria.ainesosat.get(i)+"\n";
-            Log.d(TAG, "getShopListString: "+aineet);
         }
-        Log.d(TAG, "getShopListString: aineet :"+aineet);
-        Log.d(TAG, "getShopListString: koko "+ateria.ainesosat.size());
         return aineet;
     }
     public void addIngredient(String aine) {
