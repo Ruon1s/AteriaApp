@@ -20,9 +20,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
+/**
+ * <p>MainActivity luokka, jossa ohjelma aukeaa. MainActivity toimii
+ * viikkonäkymänä, jossa esitetään seuraavien seitsemän päivän ruoat.</p>
+ * @author Aku Telimaa
+ * @since 1.0 8.5.2019
+ */
+
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
     /**
      *  <p>Luokan public muuttujen alustukset. dateText on String, joka on päivämäärä
      *  ja on muotoa "dd.MM.yyyy". day on TextView, johon viedään päivän nimi.
@@ -35,23 +41,22 @@ public class MainActivity extends AppCompatActivity {
     public TextView ruoat;
 
     /**
-     * Override onCreate methodille, jossa kutsutaan SharedPreferenceistä Ateriat,
+     * <p>Override onCreate funktiolle, jossa kutsutaan SharedPreferenceistä Ateriat,
      * Prototyypit ja prototyyppi-ruokien raaka-aineet.
-     * Samalla alustetaan ruokalistan instanssi.
+     * Samalla alustetaan ruokalistan instanssi.</p>
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ListaAteriat.getInstance();
-        Log.d(TAG, "onCreate: Initiated");
         loadAteria();
         loadPrototype();
         loadIngredients();
     }
 
     /**
-     * <p>Tallentaa Aterialistan SharedPreferencesiin. Kutsutaan onStop() metodissa.</p>
+     * <p>Tallentaa Aterialistan SharedPreferencesiin. Kutsutaan onStop() funktiossa.</p>
      */
     public void saveAteria() {
 
@@ -61,13 +66,14 @@ public class MainActivity extends AppCompatActivity {
         String json = gson.toJson(ListaAteriat.getInstance().getAterialista());
         editor.putString("Ateria", json);
         editor.apply();
-        Log.d(TAG, "saveAteria: Ateria Saved");
     }
 
     /**
      * <p>Lataa SharedPreferencestä tallennetut Ateria-oliot ja tallentaa ne
-     * ListaAteriat-luokan aterialistalle.</p>
+     * ListaAteriat-luokan aterialistalle. Kutsutaan onCreate() funktiossa.</p>
      * @throws NullPointerException, jos json saa arvoksi null.
+     * @author Mikael Ruonala
+     * @author Aku Telimaa
      */
     public void loadAteria() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
@@ -80,13 +86,12 @@ public class MainActivity extends AppCompatActivity {
         }.getType();
         if (json != null) {
             ListaAteriat.getInstance().aterialista = gson.fromJson(json, type);
-            Log.d(TAG, "loadAteria: " + ListaAteriat.getInstance().aterialista);
             setupDays();
         }
     }
 
     /**
-     * <p>Tallentaa Prototyypit listan SharedPreferencesiin. Kutsutaan onStop() metodissa.</p>
+     * <p>Tallentaa Prototyypit listan SharedPreferencesiin. Kutsutaan onStop() funktiossa.</p>
      */
     private void savePrototype() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
@@ -95,13 +100,15 @@ public class MainActivity extends AppCompatActivity {
         String json = gson.toJson(Prototyypit.getInstance().getPrototyypit());
         editor.putString("Prototyyppi", json);
         editor.apply();
-        Log.d(TAG, "savePrototype: Saved");
     }
 
     /**
      * <p>Lataa SharedPreferencestä tallennetut Prototyyppit ja tallentaa ne
-     * Prototyypit-luokan prototyypit listalle.</p>
+     * Prototyypit-luokan prototyypit listalle.
+     * kutsutaan onCreate() funktiossa.</p>
      * @throws NullPointerException, jos json saa arvoksi null.
+     * @author Mikael Ruonala
+     * @author Aku Telimaa
      */
     private void loadPrototype(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
@@ -113,11 +120,10 @@ public class MainActivity extends AppCompatActivity {
         Type type = new TypeToken<ArrayList<String>>() {}.getType();
         if (json != null) {
             Prototyypit.getInstance().prototyypit = gson.fromJson(json, type);
-            Log.d(TAG, "loadPrototype: Loaded");
         }
     }
     /**
-     * <p>Tallentaa ingredients listan SharedPreferencesiin. Kutsutaan onStop() metodissa.</p>
+     * <p>Tallentaa ingredients listan SharedPreferencesiin. Kutsutaan onStop() funktiossa.</p>
      */
     private void saveIngredients() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
@@ -126,14 +132,14 @@ public class MainActivity extends AppCompatActivity {
         String json = gson.toJson(Prototyypit.getInstance().getIngredients());
         editor.putString("Ingredients", json);
         editor.apply();
-        Log.d(TAG, "saveIngredients: Saved");
-        Log.d(TAG, "saveIngredients: "+json);
     }
 
     /**
      * <p>Lataa SharedPreferencestä tallennetut Prototyyppi luokan ingredients listat ja tallentaa ne
-     * Prototyypit luokan ingredients listalle.</p>
+     * Prototyypit luokan ingredients listalle. Kutsutaan onCreate() funktiossa.</p>
      * @throws NullPointerException, jos json saa arvoksi null.
+     * @author Mikael Ruonala
+     * @author Aku Telimaa
      */
     private void loadIngredients() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared pref", MODE_PRIVATE);
@@ -145,8 +151,6 @@ public class MainActivity extends AppCompatActivity {
         Type type = new TypeToken<ArrayList<ArrayList>>() {}.getType();
         if ( json != null) {
             Prototyypit.getInstance().ingredients = gson.fromJson(json, type);
-            Log.d(TAG, "loadIngredients: Loaded");
-            Log.d(TAG, "loadIngredients: "+Prototyypit.getInstance().ingredients);
         }
     }
 
@@ -157,8 +161,6 @@ public class MainActivity extends AppCompatActivity {
      * ( Mon, Tue, Wed, Thu, Fri, Sat, Sun )
      * @return Tuodun lyhenteen suomenkielinen kokonimi
      * (Maanantai, Tiistai, Keskiviikko, Torstai, Perjantai, Launtai, Sunnuntai)
-     * @since 1.0
-     * @author Aku Telimaa
      */
     private String convertDayName(String SDFDay) {
         if (SDFDay.contentEquals("Mon")) {
@@ -181,9 +183,8 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * <p>Asettaa viikkonäkymään seuraavat seitsemän(7) päivää
-     * ja parsee niihin Aterialistassa olevat ruoat päivämäärien mukaan</p>
-     * @author Aku Telimaa
-     * @since 1.0
+     * ja parsee niihin Aterialistassa olevat ruoat päivämäärien mukaan
+     * Kutsutaan onCreate() ja onStart() funktioissa.</p>
      */
     private void setupDays() {
         for (int i = 0; i < 7; i++) {
@@ -252,8 +253,6 @@ public class MainActivity extends AppCompatActivity {
      * activityyn painetun päivämäärän ja viikonpäivän. Seuraava activity
      * on activity_ateria_nakyma.xml / AteriaNakyma.java</p>
      * @param view Klikatun päivän container, joka on LinearLayout.
-     * @author Aku Telimaa
-     * @since 1.0
      */
     public void addMeal (View view){
         LinearLayout linearLayout = (LinearLayout) findViewById(view.getId());
@@ -268,58 +267,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * <p>Vie suoraan activity_lisää_ateria activityyn</p>
-     * @param view Klikatun n
+     * <p>Vie suoraan Aterian lisäys activityyn
+     * Seuraava activity on activity_lisää_ateria.xml / lisaaAteria.java</p>
+     * @param view Klikatun napin view, jotta funktio voidaan asettaa nappiin.
      */
     public void createNewMeal(View view) {
         Intent intent = new Intent(this, lisaaAteria.class);
         startActivity(intent);
     }
 
+    /**
+     * <p>Viee suoraan Ostoslsita activityyn
+     * Seuraava activity on activity_ostos_lista.xml / ostosLista.java<p>
+     * @param view Klikatun napin view, jotta funktio voidaan asettaa nappiin
+     */
     public void goToShoppingList(View view) {
         Intent intent = new Intent(this, ostosLista.class);
         startActivity(intent);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy: Initiated");
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause: Initiated");
-    }
-
-    @Override
-    protected void onResume () {
-        super.onResume();
-        Log.d(TAG, "onResume: Initiated");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(TAG, "onRestart: Initiated");
-    }
-
+    /**
+     * <p>onStart() funktion Override. Alustetaan onStart(), jonka jälkeen
+     * kutsutaan setupDays() funktio.
+     */
     @Override
     protected void onStart() {
         super.onStart();
         setupDays();
-        Log.d(TAG, "onStart: Initiated");
     }
 
+    /**
+     * <p>onStop() funktion Override. Alustetaan onStop(), jonka jälkeen
+     * kutsutaan saveAteria(), savePrototype() ja saveIngredients() funktiot.</p>
+     */
     @Override
     protected void onStop() {
         super.onStop();
         saveAteria();
         savePrototype();
         saveIngredients();
-        Log.d(TAG, "onStop: Initiated");
     }
 }
 
