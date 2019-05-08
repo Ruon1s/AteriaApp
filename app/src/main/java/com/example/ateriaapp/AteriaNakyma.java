@@ -1,12 +1,11 @@
-/**
- * AteriaNakyma 8.5.2019
- */
+    /**
+     * AteriaNakyma 8.5.2019
+     */
 
 package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,11 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.List;
-
 /**
- * <p>Aterialistanäkymä jossa näkyy listattuna kaikki ateriat nimien mukaan</p>
- *
+ * <p>Aterialistanäkymä, jossa näkyy listattuna kaikki ateriat nimien mukaan</p>
  * @version 1.0
  * @author Aku Telimaa ja Mikael Ruonala
  */
@@ -27,24 +23,17 @@ import java.util.List;
 public class AteriaNakyma extends AppCompatActivity {
 
     /**
-     * <p>TAG: tagi helpottamaan debuggausta</p>
-     */
-    final static String TAG = "Aterianäkymä";
-    /**
-     * <p>Listview elementti aterioiden listausta varten</p>
+     * <p>Listview elementti aterioiden listausta varten. date on päivämäärä muodossa "dd.MM.yyy".
+     * day on viikonpäivän nimi.</p>
      */
     public ListView listView;
-    /**
-     * <p>date: viikkonäkymästä mukaan otettu päivämäärä klikatulle päivälle</p>
-     */
     public String date;
-    /**
-     * <p>day: aku kertoo</p>
-     */
     public String day;
 
     /**
-     * <p>onCreate() ajetaan näkymän käynnistyessä jolloin siellä ajettavat asiat tapahtuu ensimmäisenä</p>
+     * <p>onCreate funktion Override. Haetaan listView muuttujaan ListView elementti ja palautetaan
+     * intentin vaihdon mukana tulleet date ja day muuttujat. Viikonpäivän nimi ja päivämäärä laitetaan
+     * dateView elementtiin. Lopuksi alusteaan Aterialista {@link #setMealList() setMealList()} funktiolla./p>
      * @param savedInstanceState
      */
     @Override
@@ -62,8 +51,8 @@ public class AteriaNakyma extends AppCompatActivity {
     }
 
     /**
-     * <p>createNewMeal() Siirtyy lisää uusi ateria näkymään.</p>
-     * @param view <p>liitetty painikkeeseen</p>
+     * <p>Siirtyy lisää uusi ateria activityyn.
+     * Seuraava activity on <i>activity_lisaa_ateria.xml / lisaaAteria.java</i> </p>
      */
     public void createNewMeal(View view) {
         Intent intent = new Intent(this, lisaaAteria.class);
@@ -71,11 +60,13 @@ public class AteriaNakyma extends AppCompatActivity {
     }
 
     /**
-     * Akun heiniä jälleen
+     * <p>ArrayAdapter listView elementille. Listaan viedään Prototyyppi ruokien nimet prototyypit listasta.
+     * Samalla asetetaan listan jäsenille onClickListener. Painalluksesta ohjelma hakee painetun ruoan indexillä
+     * aterialle nimen ja luo uuden Ateria-luokan olion, joka saa construktorin parametriksi painetun ruoan
+     * nimen. Sen jälkeen ohjelma hakee Prototyypit luokan ingredients listalta vastaavan ruoan ainesosat.</p>
      */
-
     public void setMealList() {
-        listView.setAdapter(new ArrayAdapter<String>(
+        listView.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
                 Prototyypit.getInstance().getPrototyypit()
@@ -86,13 +77,9 @@ public class AteriaNakyma extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 String nimi = Prototyypit.getInstance().getPrototyypit().get(position);
-
                 Ateria ateria = new Ateria(nimi);
-
                 ateria.setDate(date);
-                Log.d(TAG, "onItemClick: "+ateria+" | "+ListaAteriat.getInstance());
-                ListaAteriat.getInstance().getAterialista().add(ateria);
-                Log.d(TAG, "onItemClick: "+Prototyypit.getInstance().ingredients.get(position).size());
+                ListaAteriat.getInstance().getAterialista().add(ateria);;
                 for (int s = 0 ; s < Prototyypit.getInstance().getIngredients().get(position).size() ; s++) {
                     String aine = Prototyypit.getInstance().getIngredients().get(position).get(s).toString();
 
@@ -106,6 +93,9 @@ public class AteriaNakyma extends AppCompatActivity {
 
     }
 
+    /**
+     * <p>Custom paluunappi</p>
+     */
     public void backButton(View view) {
         finish();
     }

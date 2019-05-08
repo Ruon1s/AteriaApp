@@ -8,8 +8,16 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import java.util.ArrayList;
 
+    /**
+     * <p>Custom ArrayAdapter, jotta listaan voidaan viedä aterialle sekä nimi, että
+     * ilmoitetut ainesosat</p>
+     * @author Aku Telimaa
+     * @version 1.0
+     * @since 1.0
+     */
 
 public class ShoppingAdapter extends ArrayAdapter<Ateria> {
+
     public String aineet;
 
     public ShoppingAdapter(Activity context, ArrayList<Ateria> position) {

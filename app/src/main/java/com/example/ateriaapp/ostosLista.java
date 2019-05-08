@@ -1,28 +1,31 @@
 package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
-
+    /**
+     * <p>Ostoslistassa on listattuna kaikkien tulevien ruokien ainesosat </p>
+     * @author Aku Telimaa
+     * @since 1.0
+     */
 public class ostosLista extends AppCompatActivity {
-
+    /**
+     * <p>onCreate() funktion Override. Käynnistää listauksen populateListView() funktiolla</p>
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ostos_lista);
-
         populateListView();
     }
 
-    private void populateListView(){
+    /**
+     * <p>Funktio aterioiden ja niiden ainesosien sijoittamiseen</p>
+     */
+    public void populateListView(){
 
         ShoppingAdapter shoppingAdapter = new ShoppingAdapter(this, ListaAteriat.getInstance().aterialista);
         ListView list = (ListView) findViewById(R.id.ListViewMain);

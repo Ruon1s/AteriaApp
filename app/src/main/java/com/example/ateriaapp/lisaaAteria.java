@@ -1,45 +1,36 @@
 /**
- * LisaaAteria 8.5.2019 1.0
+ *  LisaaAteria 8.5.2019 1.0
  */
 
 package com.example.ateriaapp;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * <p>aterian lisäys lomake</p>
- *
+ * <p>Uuden aterian prototyypin luomiseen tarkoitettu näkymä.
+ * Prototyyppi luodaan nimestä, joka on pakkollinen muuttuja.
+ * Prototyypillä voi myös olla ainesosia, jotka viedään aterian luonnin yhteydessä
+ * ostoslistaan.</p>
  * @version 1.0
  * @author Aku Telimaa ja Mikael Ruonala
  */
 
 public class lisaaAteria extends AppCompatActivity {
+
     /**
-     * <p>Tagi helpottamaan debuggia</p>
-     */
-    private static final String TAG = "lisaaAteria";
-    /**
-     * <p>Lomakkeen tekstikentät tekstinsyöttöä varten</p>
+     * <p>Sivun tekstikentät tekstinlukua varten.</p>
      */
     public EditText ruoka_aine, ruoka_aine2, ruoka_aine3, ruoka_aine4, ruoka_aine5, ruoka_aine6, ruoka_aine7, ateriaNimi;
+
     /**
-     * <p>onCreate() laittaa tekstikenttien arvot muuttujiin</p>
+     * <p>onCreate() metodin Override.
+     * Alustetaan EditText muuttujille kullekkin oma EditText elementti</p>
+     * @param savedInstanceState
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +48,9 @@ public class lisaaAteria extends AppCompatActivity {
 
     }
     /**
-     * Aku täyttää
-     * @param view
+     * <p>Funktio hakee aterialle nimen <i>aterianNimi</i> EditText elementistä.
+     * Nimi on aterian luontiin pakollinen muuttuja.
+     * Aterialle voidaan myös antaa maksimissaan seitsemän(7) kappaletta ainesosia.</p>
      */
     public void addButton(View view){
         String nimi = ateriaNimi.getText().toString();
@@ -76,7 +68,6 @@ public class lisaaAteria extends AppCompatActivity {
                     });
             AlertDialog alert = alertBuilder.create();
             alert.show();
-
         } else {
             String aine1 = ruoka_aine.getText().toString();
             String aine2 = ruoka_aine2.getText().toString();

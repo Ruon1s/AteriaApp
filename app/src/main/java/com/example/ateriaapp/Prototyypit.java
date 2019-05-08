@@ -3,7 +3,16 @@ package com.example.ateriaapp;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+    /**
+     * <p>Singleton luokka, joka pitää sisällään kaksi arrayListaa.</p>
+     * @author Aku Telimaa
+     * @since 1.0
+     */
 class Prototyypit {
+
+        /**
+         *  prototyypit ja ingredients muuttujat
+         */
     public ArrayList<String> prototyypit;
     public ArrayList<ArrayList> ingredients;
 
@@ -25,6 +34,18 @@ class Prototyypit {
         return ingredients;
     }
 
+        /**
+         * <p>Prototyypin lisäys prototyypit listaan. Luo uusi lista ainesosista,
+         * joka voidaan laittaa ingredients listaan. </p>
+         * @param nimi Prototyypin nimi
+         * @param aine1 mahdollinen ainesosa
+         * @param aine2 mahdollinen ainesosa
+         * @param aine3 mahdollinen ainesosa
+         * @param aine4 mahdollinen ainesosa
+         * @param aine5 mahdollinen ainesosa
+         * @param aine6 mahdollinen ainesosa
+         * @param aine7 mahdollinen ainesosa
+         */
     public void addToPrototypeArray(String nimi, String aine1, String aine2, String aine3, String aine4, String aine5, String aine6, String aine7) {
         prototyypit.add(nimi);
         ArrayList<String> aineet = new ArrayList<>();
