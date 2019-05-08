@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
+
 public class ostosLista extends AppCompatActivity {
 
     @Override
@@ -17,10 +22,22 @@ public class ostosLista extends AppCompatActivity {
     }
 
     private void populateListView(){
-        String[] myItems = {"blue", "green", "Purple", "Red"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.ostokset, myItems);
+
+        ShoppingAdapter shoppingAdapter = new ShoppingAdapter(this, ListaAteriat.getInstance().aterialista);
         ListView list = (ListView) findViewById(R.id.ListViewMain);
-        list.setAdapter(adapter);
+        list.setAdapter(shoppingAdapter);
+
+        /* for (int i = 0 ; i < 7 ; i++) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.US);
+            Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.DAY_OF_MONTH, i);
+            String date = sdf.format(cal.getTime());
+
+            for (int x = 0 ; x < ListaAteriat.getInstance().aterialista.size() ; x++) {
+                Ateria olio = ListaAteriat.getInstance().aterialista.get(x);
+
+            }
+        } */
     }
 
 }

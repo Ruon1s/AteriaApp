@@ -5,10 +5,8 @@ import java.util.ArrayList;
 
 class Prototyypit {
     private ArrayList<String> prototyypit;
-
-
-
     private ArrayList<ArrayList> ingredients;
+
     private static final Prototyypit ourInstance = new Prototyypit();
 
     static Prototyypit getInstance() {
@@ -18,11 +16,6 @@ class Prototyypit {
     private Prototyypit() {
         prototyypit = new ArrayList<>();
         ingredients = new ArrayList<>();
-
-        prototyypit.add("Laatikko");
-        prototyypit.add("Kaapo");
-        prototyypit.add("Pihvi");
-        prototyypit.add("Kukkakaali");
     }
     public ArrayList<String> getPrototyypit() {
         return prototyypit;
@@ -47,8 +40,4 @@ class Prototyypit {
 
     }
 
-    public void addToIngredients(String nimi) {
-        ArrayList<String> ingredientsofprototype = new ArrayList<>();
-
-    }
 }

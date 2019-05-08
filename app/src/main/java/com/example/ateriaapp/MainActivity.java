@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Hello");
         setupDays();
+
     }
 
     private void savePrototype() {
@@ -211,6 +212,17 @@ public class MainActivity extends AppCompatActivity {
             Log.d("onResume", "ateriatallennettu");
             setupDays();
         }
+
+    public void createNewMeal(View view) {
+        Intent intent = new Intent(this, lisaaAteria.class);
+        startActivity(intent);
+    }
+
+    public void goToShoppingList(View view) {
+        Intent intent = new Intent(this, ostosLista.class);
+        startActivity(intent);
+    }
+
 
 
 }

@@ -59,24 +59,9 @@ public class lisaaAteria extends AppCompatActivity {
         }
         finish();
     }
+
+    public void backButton(View view) {
+        finish();
+    }
 }
 
-
-    // Todo <-- Fix if time -->
-    /*  public void addIngredient(View view) {
-
-        container.addView(addNewEditView());
-
-    }
-
-     private EditText addNewEditView() {
-        final ConstraintLayout.LayoutParams lparams = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        final EditText editText = new EditText(this);
-        editText.setLayoutParams(lparams);
-        ConstraintSet cs = new ConstraintSet();
-        cs.connect(editText.getId(), ConstraintSet.TOP,
-                ruoka_aine.getId(), ConstraintSet.BOTTOM, 14);
-        cs.applyTo(container);
-
-        return editText;
-    } /*/

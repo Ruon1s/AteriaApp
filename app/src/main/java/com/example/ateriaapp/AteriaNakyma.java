@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class AteriaNakyma extends AppCompatActivity {
 
     final static String TAG = "Aterianäkymä";
@@ -32,7 +34,6 @@ public class AteriaNakyma extends AppCompatActivity {
         String dayDate = ""+day+" "+date;
         dateview.setText(dayDate);
         setMealList();
-
     }
 
     public void createNewMeal(View view) {
@@ -58,8 +59,31 @@ public class AteriaNakyma extends AppCompatActivity {
              Ateria ateria = new Ateria(nimi);
              Log.d(TAG, "onItemClick: aterian "+ateria);
              ateria.setDate(date);
-             Log.d(TAG, "onItemClick: date: "+date);
              ListaAteriat.getInstance().aterialista.add(ateria);
+
+             for (int i = 0 ; i < Prototyypit.getInstance().getIngredients().size() ; i++) {
+                 for (int s = 0 ; s < Prototyypit.getInstance().getIngredients().get(i).size() ; s++) {
+                     String aine = Prototyypit.getInstance().getIngredients().get(i).get(s).toString();
+
+                     if (!aine.equals("")) {
+                         ateria.addIngredient(aine);
+                         Log.d(TAG, "onItemClick: " + aine);
+                         Log.d(TAG, "onItemClick: " + ateria.getAinesosat());
+                     }
+                 }
+             }
+             Log.d(TAG, "onItemClick: SIZES "+ListaAteriat.getInstance().aterialista.size());
+
+
+             for (int c = 0 ; c < ListaAteriat.getInstance().aterialista.size() ; c++) {
+                 for (int p = 0 ; p < ListaAteriat.getInstance().aterialista.get(c).getAinesosat().size() ; p++) {
+                     Log.d(TAG, "onItemClick: Ingredients "+ListaAteriat.getInstance().aterialista.get(c).getAinesosat().get(c));
+                 }
+             }
+
+
+             Log.d(TAG, "onItemClick: date: "+date);
+
              finish();
          }
      });
