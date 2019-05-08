@@ -1,3 +1,7 @@
+/**
+ * AteriaNakyma 8.5.2019
+ */
+
 package com.example.ateriaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,13 +17,36 @@ import android.widget.TextView;
 
 import java.util.List;
 
+/**
+ * <p>Aterialistanäkymä jossa näkyy listattuna kaikki ateriat nimien mukaan</p>
+ *
+ * @version 1.0
+ * @author Aku Telimaa ja Mikael Ruonala
+ */
+
 public class AteriaNakyma extends AppCompatActivity {
 
+    /**
+     * <p>TAG: tagi helpottamaan debuggausta</p>
+     */
     final static String TAG = "Aterianäkymä";
+    /**
+     * <p>Listview elementti aterioiden listausta varten</p>
+     */
     public ListView listView;
+    /**
+     * <p>date: viikkonäkymästä mukaan otettu päivämäärä klikatulle päivälle</p>
+     */
     public String date;
+    /**
+     * <p>day: aku kertoo</p>
+     */
     public String day;
 
+    /**
+     * <p>onCreate() ajetaan näkymän käynnistyessä jolloin siellä ajettavat asiat tapahtuu ensimmäisenä</p>
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +61,18 @@ public class AteriaNakyma extends AppCompatActivity {
         setMealList();
     }
 
+    /**
+     * <p>createNewMeal() Siirtyy lisää uusi ateria näkymään.</p>
+     * @param view <p>liitetty painikkeeseen</p>
+     */
     public void createNewMeal(View view) {
         Intent intent = new Intent(this, lisaaAteria.class);
         startActivity(intent);
     }
+
+    /**
+     * Akun heiniä jälleen
+     */
 
     public void setMealList() {
         listView.setAdapter(new ArrayAdapter<String>(

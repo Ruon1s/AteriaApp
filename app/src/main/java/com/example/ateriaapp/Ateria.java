@@ -1,36 +1,78 @@
+/**
+ * Ateria 8.5.2019 1.0
+ */
+
 package com.example.ateriaapp;
 
 import android.util.Log;
 
 import java.util.ArrayList;
 
-//aterialuokka jonka parametreinä nimi ja arraylist johon tulee ainesosat.
+/**
+ * <p>Luokka Ateria olioille joita lisätään viikkonäkymään päivämäärän mukaan.</p>
+ *
+ * @version 1.0 8.5.2019
+ * @author Aku Telimaa ja Mikael Ruonala
+ */
 public class Ateria {
 
-    final static String TAG = "Ateria.Java";
+    /**
+     * <p>public final static String TAG: debuggausta varten tagi</p>
+     */
 
+    final static String TAG = "Ateria.Java";
+    /**
+     * <p>private String nimi: aterian nimi</p>
+     */
     private String nimi;
+    /**
+     * <p>private String date: Aterian päivämäärä</p>
+     */
     private String date;
+    /**
+     * <p>private ArrayList ainesosat: pitää sisällään aterian ainesosat Stringeinä.</p>
+     */
     private ArrayList<String> ainesosat;
 
-
+    /**
+     * <p>Constructori Ateria lisää aterian nimi parametrillä</p>
+     * @param nimi <p>aterian nimi</p>
+     */
     public Ateria(String nimi) {
         this.nimi = nimi;
         this.ainesosat = new ArrayList<String>();
     }
 
+    /**
+     * <p>metodi setDate(String date) lisää aterialle päivämäärän</p>
+     * @param date <p>päivämäärä</p>
+     */
+
     public void setDate(String date) {
         this.date = date;
     }
+
+    /**
+     * <p> metodi getDate palauttaa olion päivämäärän</p>
+     * @return <p>palauttaa päivämäärän</p>
+     */
 
     public String getDate() {
         return this.date;
     }
 
+    /**
+     * <p>metodi getNimi() palauttaa olion nimen</p>
+     * @return <p>palauttaa nimen</p>
+     */
     public String getNimi() {
         return nimi;
     }
 
+    /**
+     * <p>getAinesosat() metodi palauttaa Arraylistin ainesosat</p>
+     * @return <p> arraylist ainesosat</p>
+     */
     public ArrayList<String> getAinesosat() {
         return this.ainesosat;
     }
@@ -46,6 +88,16 @@ public class Ateria {
         this.ainesosat.add(aine);
     }
 
+    /**
+     * <p>setAinesosat() lisää aineet ainesosat ArrayListiin jos ne eivät ole tyhjiä</p>
+     * @param aine1 <p> ainesosa</p>
+     * @param aine2 <p> ainesosa</p>
+     * @param aine3 <p> ainesosa</p>
+     * @param aine4 <p> ainesosa</p>
+     * @param aine5 <p> ainesosa</p>
+     * @param aine6 <p> ainesosa</p>
+     * @param aine7 <p> ainesosa</p>
+     */
     public void setAinesosat(String aine1,String aine2,String aine3, String aine4, String aine5, String aine6, String aine7){
 
         if (!aine1.equals("")) { this.ainesosat.add(aine1); }
